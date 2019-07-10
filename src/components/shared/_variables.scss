@@ -1,0 +1,74 @@
+$grid-columns: 12;
+$transition-time: 200ms;
+
+$font-scale-up: 1.2;
+$font-scale-down: 0.86;
+
+$typography: (
+  '--xui-font-family': "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif",
+  '--xui-font-size--supplementary': calc(1rem * 0.875 * 0.875),
+  '--xui-font-size': calc(1rem * 0.875),
+  '--xui-font-size--regular': 1rem,
+  '--xui-font-scale': 1.2,
+);
+
+$colors: (
+  '--xui-color-white': #fff,
+  '--xui-color-font': hsl(0, 0, 7),
+  '--xui-color-border': hsl(0, 0, 90),
+  '--xui-color-border--light': hsl(0, 0, 93),
+  '--xui-color-border--lighter': hsl(0, 0, 95),
+  '--xui-color-border--extra-light': hsl(0, 0, 97),
+  
+
+  '--xui-color-gray--lightest': hsl(0, 0, 97),
+  '--xui-color-gray--lighter': hsl(0, 0, 94),
+  '--xui-color-gray--light': hsl(0, 0, 89),
+  '--xui-color-gray--normal': hsl(0, 0, 84),
+  '--xui-color-gray--dark': hsl(0, 0, 78),
+  '--xui-color-gray--darker': hsl(0, 0, 70),
+  '--xui-color-gray--darkest': hsl(0, 0, 60),
+  '--xui-color-backish--lightest': hsl(0, 0, 40),
+  '--xui-color-backish--lighter': hsl(0, 0, 25),
+  '--xui-color-backish--light': hsl(0, 0, 15),
+  '--xui-color-backish--normal': hsl(0, 0, 7),
+  '--xui-color-backish--dark': hsl(0, 0, 5),
+  '--xui-color-backish--darker': hsl(0, 0, 3),
+  '--xui-color-backish--darkest': hsl(0, 0, 0),
+  '--xui-color-primary--lightest': hsl(190, 34, 95),
+  '--xui-color-primary--lighter': hsl(190, 34, 79),
+  '--xui-color-primary--light': hsl(190, 42, 52),
+  '--xui-color-primary--normal': hsl(190, 45, 45),
+  '--xui-color-primary--dark': hsl(190, 50, 39),
+  '--xui-color-primary--darker': hsl(190, 55, 30),
+  '--xui-color-primary--darkest': hsl(190, 55, 21),
+  '--xui-color-secondary--lightest': hsl(320, 21, 96),
+  '--xui-color-secondary--lighter': hsl(320, 25, 83),
+  '--xui-color-secondary--light': hsl(320, 25, 67),
+  '--xui-color-secondary--normal': hsl(320, 30, 50),
+  '--xui-color-secondary--dark': hsl(320, 33, 44),
+  '--xui-color-secondary--darker': hsl(320, 38, 31),
+  '--xui-color-secondary--darkest': hsl(320, 49, 24),
+  '--xui-color-success--lightest': hsl(84, 56, 95),
+  '--xui-color-success--lighter': hsl(84, 62, 78),
+  '--xui-color-success--light': hsl(84, 68, 55),
+  '--xui-color-success--normal': hsl(84, 99, 40),
+  '--xui-color-success--dark': hsl(84, 97, 34),
+  '--xui-color-success--darker': hsl(84, 97, 23),
+  '--xui-color-success--darkest': hsl(84, 100, 10),
+  '--xui-color-danger--lightest': hsl(357, 66, 95),
+  '--xui-color-danger--lighter': hsl(357, 75, 81),
+  '--xui-color-danger--light': hsl(357, 81, 69),
+  '--xui-color-danger--normal': hsl(357, 68, 50),
+  '--xui-color-danger--dark': hsl(357, 74, 43),
+  '--xui-color-danger--darker': hsl(357, 83, 34),
+  '--xui-color-danger--darkest': hsl(357, 100, 23),
+);
+
+@function map-val($map, $key) {
+  @return var(#{$key}, #{map-get($map, $key)});
+}
+
+@function font-size-regular() {
+
+}

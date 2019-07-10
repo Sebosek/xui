@@ -23,6 +23,13 @@ export namespace Components {
     */
     'middle': string;
   }
+  interface XuiButton {
+    'disabled': boolean;
+    'ghost': boolean;
+    'inverted': boolean;
+    'text': string;
+    'type': 'default' | 'primary' | 'danger';
+  }
 }
 
 declare global {
@@ -33,8 +40,15 @@ declare global {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
+
+  interface HTMLXuiButtonElement extends Components.XuiButton, HTMLStencilElement {}
+  var HTMLXuiButtonElement: {
+    prototype: HTMLXuiButtonElement;
+    new (): HTMLXuiButtonElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'xui-button': HTMLXuiButtonElement;
   }
 }
 
@@ -53,9 +67,17 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
+  interface XuiButton extends JSXBase.HTMLAttributes<HTMLXuiButtonElement> {
+    'disabled'?: boolean;
+    'ghost'?: boolean;
+    'inverted'?: boolean;
+    'text'?: string;
+    'type'?: 'default' | 'primary' | 'danger';
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
+    'xui-button': XuiButton;
   }
 }
 

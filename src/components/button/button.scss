@@ -1,0 +1,27 @@
+@import "../shared/variables";
+
+:host {
+  & > button {
+    align-items: center;
+    background: transparent;
+    border: 1px solid #{map-val($colors, '--xui-color-border')};
+    border-radius: 2px;
+    color: #{map-val($colors, '--xui-color-font')};
+    cursor: pointer;
+    display: inline-flex;
+    font-family: #{map-val($typography, '--xui-font-family')};
+    font-size: #{map-val($typography, '--xui-font-size')};
+    font-weight: 500;
+    line-height: 2.4;
+    margin: 0;
+    padding: 0 calc(#{map-val($typography, '--xui-font-size')} * 1.2);
+    position: relative;
+    transition: .2s;
+    user-select: none;
+    outline: none;
+  }
+
+  &.ghost > button {
+    border: 1px solid transparent;
+  }
+}
