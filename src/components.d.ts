@@ -30,6 +30,10 @@ export namespace Components {
     'text': string;
     'type': 'default' | 'primary' | 'danger';
   }
+  interface XuiColor {
+    'color': string;
+    'steps': number;
+  }
 }
 
 declare global {
@@ -46,9 +50,16 @@ declare global {
     prototype: HTMLXuiButtonElement;
     new (): HTMLXuiButtonElement;
   };
+
+  interface HTMLXuiColorElement extends Components.XuiColor, HTMLStencilElement {}
+  var HTMLXuiColorElement: {
+    prototype: HTMLXuiColorElement;
+    new (): HTMLXuiColorElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
+    'xui-color': HTMLXuiColorElement;
   }
 }
 
@@ -74,10 +85,15 @@ declare namespace LocalJSX {
     'text'?: string;
     'type'?: 'default' | 'primary' | 'danger';
   }
+  interface XuiColor extends JSXBase.HTMLAttributes<HTMLXuiColorElement> {
+    'color'?: string;
+    'steps'?: number;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
     'xui-button': XuiButton;
+    'xui-color': XuiColor;
   }
 }
 

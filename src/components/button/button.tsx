@@ -16,7 +16,6 @@ export class Button {
     return (
       <Host
         class={{
-          'button': true,
           'ghost': this.ghost,
           'inverted': this.inverted,
           'disabled': this.disabled,

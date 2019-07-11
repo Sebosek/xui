@@ -1,0 +1,183 @@
+@import "../shared/variables";
+
+:host {
+  display: inline-flex;
+}
+
+.colors {
+  display: flexbox;
+  flex-direction: column;
+
+  > div {
+    height: 60px;
+    width: 160px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .h900 {
+    background-color: transparent;
+  }
+  .h800 {
+    background-color: hsl(197, 100%, 10%); // hsl(55,100%,5%) -- should be 10%; change!
+  }
+  .h700 {
+    background-color: hsl(197, 100%, 20%); // hsl(55,100%,15%)
+  }
+  .h600 {
+    background-color: hsl(197, 100%, 30%); // hsl(55,100%,26%)
+  }
+  .h500 {
+    background-color: hsl(197, 100%, 50%); // #00A8E8; // hsl(55,100%,45%)
+  }
+  .h400 {
+    background-color: hsl(197, 100%, 75%); // hsl(55,100%,70%)
+  }
+  .h300 {
+    background-color: hsl(197, 100%, 87%); // hsl(55,100%,82%)
+  }
+  .h200 {
+    background-color: hsl(197, 100%, 97%); // hsl(55,100%,94%)
+  }
+  .h100 {
+    background-color: transparent;
+  }
+
+  &.border {
+    .h900 {
+      background-color: transparent;
+    }
+    .h800 {
+      background-color: #8D99AE;
+    }
+    .h700 {
+      background-color: #9fa9bb;
+    }
+    .h600 {
+      background-color: #b2bac8;
+    }
+    .h500 {
+      background-color: #c4cad5;
+    }
+    .h400 {
+      background-color: #d7dbe2;
+    }
+    .h300 {
+      background-color: #e9ebef;
+    }
+    .h200 {
+      background-color: #fbfbfc;
+    }
+    .h100 {
+      background-color: transparent;
+    }
+
+  }
+
+  &.font {
+    .h900 {
+      background-color: transparent;
+    }
+    .h800 {
+      background-color: transparent;
+    }
+    .h700 {
+      background-color: transparent;
+    }
+    .h600 {
+      background-color: #020202;
+    }
+    .h500 {
+      background-color: #121212;
+    }
+    .h400 {
+      background-color: #838383;
+    }
+    .h300 {
+      background-color: transparent;
+    }
+    .h200 {
+      background-color: transparent;
+    }
+    .h100 {
+      background-color: transparent;
+    }
+
+  }
+
+  &.danger {
+    .h800 {
+      background-color: hsl(353, 75%, 10%);
+    }
+    .h700 {
+      background-color: hsl(353, 75%, 20%);
+    }
+    .h600 {
+      background-color: hsl(353, 75%, 30%);
+    }
+    .h500 {
+      background-color: hsl(353, 75%, 50%); //#FF2540; // hsl(98,100%,57%)
+    }
+    .h400 {
+      background-color: hsl(353, 75%, 75%);
+    }
+    .h300 {
+      background-color: hsl(353, 75%, 87%);
+    }
+    .h200 {
+      background-color: hsl(353, 75%, 97%);
+    }
+  }
+
+  &.warning {
+    .h800 {
+      background-color: hsl(42, 100%, 10%);
+    }
+    .h700 {
+      background-color: hsl(42, 100%, 20%);
+    }
+    .h600 {
+      background-color: hsl(42, 100%, 30%);
+    }
+    .h500 {
+      background-color: hsl(42, 100%, 50%); //#FF2540; // hsl(98,100%,57%)
+    }
+    .h400 {
+      background-color: hsl(42, 100%, 75%);
+    }
+    .h300 {
+      background-color: hsl(42, 100%, 87%);
+    }
+    .h200 {
+      background-color: hsl(42, 100%, 97%);
+    }
+  }
+
+  &.success {
+    .h800 {
+      background-color: hsl(79, 54%, 10%);
+    }
+    .h700 {
+      background-color: hsl(79, 54%, 20%);
+    }
+    .h600 {
+      background-color: hsl(79, 54%, 30%);
+    }
+    .h500 {
+      background-color: hsl(79, 54%, 50%);
+    }
+    .h400 {
+      background-color: hsl(79, 54%, 75%);
+    }
+    .h300 {
+      background-color: hsl(79, 54%, 87%);
+    }
+    .h200 {
+      background-color: hsl(79, 54%, 97%);
+    }
+  }
+}

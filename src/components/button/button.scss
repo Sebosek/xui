@@ -1,27 +1,35 @@
 @import "../shared/variables";
 
 :host {
-  & > button {
+  > button {
     align-items: center;
     background: transparent;
-    border: 1px solid #{map-val($colors, '--xui-color-border')};
-    border-radius: 2px;
+    border: 1px solid #{map-val($colors, '--xui-color-border500')};
+    border-radius: 4px;
     color: #{map-val($colors, '--xui-color-font')};
     cursor: pointer;
     display: inline-flex;
     font-family: #{map-val($typography, '--xui-font-family')};
-    font-size: #{map-val($typography, '--xui-font-size')};
+    font-size: #{map-val($typography, '--xui-font-size--base')};
     font-weight: 500;
     line-height: 2.4;
     margin: 0;
-    padding: 0 calc(#{map-val($typography, '--xui-font-size')} * 1.2);
+    padding: 0 calc(#{map-val($typography, '--xui-font-size--base')} * 1.2);
     position: relative;
-    transition: .2s;
+    transition: .3s;
     user-select: none;
     outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-border300')};
+    }
+  }
+
+  &:hover > button {
+    background: #{map-val($colors, '--xui-color-border200')};
   }
 
   &.ghost > button {
-    border: 1px solid transparent;
+    border-color: transparent;
   }
 }
