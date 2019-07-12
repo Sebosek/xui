@@ -9,7 +9,6 @@ export class Button {
   @Prop({ reflect: true }) text: string
   @Prop({ reflect: true }) type: 'default' | 'primary' | 'danger' = 'default'
   @Prop({ reflect: true }) disabled: boolean
-  @Prop({ reflect: true }) inverted: boolean
   @Prop({ reflect: true }) ghost: boolean
 
   render() {
@@ -17,8 +16,9 @@ export class Button {
       <Host
         class={{
           'ghost': this.ghost,
-          'inverted': this.inverted,
           'disabled': this.disabled,
+          'primary': this.type === 'primary',
+          'danger': this.type === 'danger',
         }}
       >
         {this.text && <button>{this.text}</button>}

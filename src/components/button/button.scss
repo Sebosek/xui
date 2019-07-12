@@ -11,10 +11,10 @@
     display: inline-flex;
     font-family: #{map-val($typography, '--xui-font-family')};
     font-size: #{map-val($typography, '--xui-font-size--base')};
-    font-weight: 500;
+    font-weight: 400;
     line-height: 2.4;
     margin: 0;
-    padding: 0 calc(#{map-val($typography, '--xui-font-size--base')} * 1.2);
+    padding: 0 calc(#{map-val($typography, '--xui-font-size--base')} * 1.4);
     position: relative;
     transition: .3s;
     user-select: none;
@@ -29,7 +29,95 @@
     background: #{map-val($colors, '--xui-color-border200')};
   }
 
-  &.ghost > button {
-    border-color: transparent;
+  &.primary {
+    > button {
+      background: #{map-val($colors, '--xui-color-primary500')};
+      border-color: #{map-val($colors, '--xui-color-primary500')};
+      color: #{map-val($colors, '--xui-color-white')};
+
+      &:focus {
+        box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-primary300')};
+      }
+    }
+
+    &:hover > button {
+      background: #{map-val($colors, '--xui-color-primary400')};
+      border-color: #{map-val($colors, '--xui-color-primary400')};
+    }
+  }
+
+  &.danger {
+    > button {
+      background: #{map-val($colors, '--xui-color-danger500')};
+      border-color: #{map-val($colors, '--xui-color-danger500')};
+      color: #{map-val($colors, '--xui-color-white')};
+
+      &:focus {
+        box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-danger300')};
+      }
+    }
+
+    &:hover > button {
+      background: #{map-val($colors, '--xui-color-danger400')};
+      border-color: #{map-val($colors, '--xui-color-danger400')};
+    }
+  }
+
+  &.ghost {
+    > button {
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    &:hover {
+      > button {
+        background: #{map-val($colors, '--xui-color-border200')};
+        border-color: transparent;
+      }
+    }
+
+    &.primary {
+      > button {
+        color: #{map-val($colors, '--xui-color-primary500')};
+      }
+
+      &:hover {
+        > button {
+          background: #{map-val($colors, '--xui-color-primary100')};
+          border-color: transparent;
+        }
+      }
+    }
+
+    &.danger {
+      > button {
+        color: #{map-val($colors, '--xui-color-danger500')};
+      }
+
+      &:hover {
+        > button {
+          background: #{map-val($colors, '--xui-color-danger100')};
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  &[disabled] {
+    > button {
+      background-color: #{map-val($colors, '--xui-color-border300')};
+      border-color: #{map-val($colors, '--xui-color-border600')};
+      color: #{map-val($colors, '--xui-color-border600')};
+      cursor: not-allowed;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    &:hover > button {
+      background-color: #{map-val($colors, '--xui-color-border300')};
+      border-color: #{map-val($colors, '--xui-color-border600')};
+    }
   }
 }

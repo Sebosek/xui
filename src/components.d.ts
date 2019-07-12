@@ -26,7 +26,6 @@ export namespace Components {
   interface XuiButton {
     'disabled': boolean;
     'ghost': boolean;
-    'inverted': boolean;
     'text': string;
     'type': 'default' | 'primary' | 'danger';
   }
@@ -81,7 +80,6 @@ declare namespace LocalJSX {
   interface XuiButton extends JSXBase.HTMLAttributes<HTMLXuiButtonElement> {
     'disabled'?: boolean;
     'ghost'?: boolean;
-    'inverted'?: boolean;
     'text'?: string;
     'type'?: 'default' | 'primary' | 'danger';
   }
