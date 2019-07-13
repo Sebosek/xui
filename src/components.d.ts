@@ -29,6 +29,14 @@ export namespace Components {
     'text': string;
     'type': 'default' | 'primary' | 'danger';
   }
+  interface XuiCheckbox {
+    'checked': boolean;
+    'disabled': boolean;
+    'intermediate': boolean;
+    'name': string;
+    'tabindex': number;
+    'value': string | number;
+  }
   interface XuiColor {
     'color': string;
     'steps': number;
@@ -50,6 +58,12 @@ declare global {
     new (): HTMLXuiButtonElement;
   };
 
+  interface HTMLXuiCheckboxElement extends Components.XuiCheckbox, HTMLStencilElement {}
+  var HTMLXuiCheckboxElement: {
+    prototype: HTMLXuiCheckboxElement;
+    new (): HTMLXuiCheckboxElement;
+  };
+
   interface HTMLXuiColorElement extends Components.XuiColor, HTMLStencilElement {}
   var HTMLXuiColorElement: {
     prototype: HTMLXuiColorElement;
@@ -58,6 +72,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
+    'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
   }
 }
@@ -83,6 +98,15 @@ declare namespace LocalJSX {
     'text'?: string;
     'type'?: 'default' | 'primary' | 'danger';
   }
+  interface XuiCheckbox extends JSXBase.HTMLAttributes<HTMLXuiCheckboxElement> {
+    'checked'?: boolean;
+    'disabled'?: boolean;
+    'intermediate'?: boolean;
+    'name'?: string;
+    'onChanged'?: (event: CustomEvent<string | number | boolean>) => void;
+    'tabindex'?: number;
+    'value'?: string | number;
+  }
   interface XuiColor extends JSXBase.HTMLAttributes<HTMLXuiColorElement> {
     'color'?: string;
     'steps'?: number;
@@ -91,6 +115,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'my-component': MyComponent;
     'xui-button': XuiButton;
+    'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
   }
 }
