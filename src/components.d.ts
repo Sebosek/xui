@@ -56,6 +56,10 @@ export namespace Components {
     'tabindex': number;
     'value': string | number | null;
   }
+  interface XuiToggle {
+    'disabled': boolean;
+    'switched': boolean;
+  }
 }
 
 declare global {
@@ -96,6 +100,12 @@ declare global {
     prototype: HTMLXuiRadioElement;
     new (): HTMLXuiRadioElement;
   };
+
+  interface HTMLXuiToggleElement extends Components.XuiToggle, HTMLStencilElement {}
+  var HTMLXuiToggleElement: {
+    prototype: HTMLXuiToggleElement;
+    new (): HTMLXuiToggleElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
@@ -103,6 +113,7 @@ declare global {
     'xui-color': HTMLXuiColorElement;
     'xui-input': HTMLXuiInputElement;
     'xui-radio': HTMLXuiRadioElement;
+    'xui-toggle': HTMLXuiToggleElement;
   }
 }
 
@@ -156,6 +167,11 @@ declare namespace LocalJSX {
     'tabindex'?: number;
     'value'?: string | number | null;
   }
+  interface XuiToggle extends JSXBase.HTMLAttributes<HTMLXuiToggleElement> {
+    'disabled'?: boolean;
+    'onChanged'?: (event: CustomEvent<boolean>) => void;
+    'switched'?: boolean;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
@@ -164,6 +180,7 @@ declare namespace LocalJSX {
     'xui-color': XuiColor;
     'xui-input': XuiInput;
     'xui-radio': XuiRadio;
+    'xui-toggle': XuiToggle;
   }
 }
 
