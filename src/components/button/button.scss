@@ -29,37 +29,53 @@
     background: #{map-val($colors, '--xui-color-border200')};
   }
 
+  &:active > button {
+    background-color: $color-border-300;
+  }
+
   &.primary {
     > button {
-      background: #{map-val($colors, '--xui-color-primary500')};
-      border-color: #{map-val($colors, '--xui-color-primary500')};
-      color: #{map-val($colors, '--xui-color-white')};
+      background: $color-primary-500;
+      border-color: $color-primary-500;
+      color: $color-base;
 
       &:focus {
-        box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-primary300')};
+        box-shadow: 0 0 0 2px $color-primary-300;
       }
     }
 
     &:hover > button {
-      background: #{map-val($colors, '--xui-color-primary400')};
-      border-color: #{map-val($colors, '--xui-color-primary400')};
+      background: $color-primary-400;
+      border-color: $color-primary-400;
+    }
+
+    &:active > button {
+      background: $color-primary-600;
+      border-color: $color-primary-600;
+      box-shadow: 0 0 0 2px $color-primary-400;
     }
   }
 
   &.danger {
     > button {
-      background: #{map-val($colors, '--xui-color-danger500')};
-      border-color: #{map-val($colors, '--xui-color-danger500')};
-      color: #{map-val($colors, '--xui-color-white')};
+      background: $color-danger-500;
+      border-color: $color-danger-500;
+      color: $color-base;
 
       &:focus {
-        box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-danger300')};
+        box-shadow: 0 0 0 2px $color-danger-300;
       }
     }
 
     &:hover > button {
-      background: #{map-val($colors, '--xui-color-danger400')};
-      border-color: #{map-val($colors, '--xui-color-danger400')};
+      background: $color-danger-400;
+      border-color: $color-danger-400;
+    }
+
+    &:active > button {
+      background: $color-danger-600;
+      border-color: $color-danger-600;
+      box-shadow: 0 0 0 2px $color-danger-400;
     }
   }
 

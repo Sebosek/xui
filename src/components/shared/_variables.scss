@@ -34,9 +34,10 @@ $colors: (
   // '--xui-color-primary200': hsl(197, 100%, 87%),
   // '--xui-color-primary100': hsl(197, 100%, 97%),
 
-  '--xui-color-primary800': hsl(197, 85%, 10%),
-  '--xui-color-primary700': hsl(197, 85%, 20%),
-  '--xui-color-primary600': hsl(197, 85%, 30%),
+  '--xui-color-primary900': hsl(197, 85%, 10%),
+  '--xui-color-primary800': hsl(197, 85%, 20%),
+  '--xui-color-primary700': hsl(197, 85%, 30%),
+  '--xui-color-primary600': hsl(197, 85%, 40%),
   '--xui-color-primary500': hsl(197, 85%, 50%),
   '--xui-color-primary400': hsl(197, 85%, 60%),
   '--xui-color-primary300': hsl(197, 85%, 75%),
@@ -51,9 +52,10 @@ $colors: (
   '--xui-color-success300': hsl(79, 54%, 87%),
   '--xui-color-success200': hsl(79, 54%, 97%),
 
-  '--xui-color-danger800': hsl(353, 75%, 10%),
-  '--xui-color-danger700': hsl(353, 75%, 20%),
-  '--xui-color-danger600': hsl(353, 75%, 30%),
+  '--xui-color-danger900': hsl(353, 75%, 10%),
+  '--xui-color-danger800': hsl(353, 75%, 20%),
+  '--xui-color-danger700': hsl(353, 75%, 30%),
+  '--xui-color-danger600': hsl(353, 75%, 40%),
   '--xui-color-danger500': hsl(353, 75%, 50%),
   '--xui-color-danger400': hsl(353, 75%, 60%),
   '--xui-color-danger300': hsl(353, 75%, 75%),
@@ -65,6 +67,28 @@ $colors: (
   @return var(#{$key}, #{map-get($map, $key)});
 }
 
-@function font-size-regular() {
+$color-base: #{map-val($colors, '--xui-color-white')};
 
-}
+$color-border-800: #{map-val($colors, '--xui-color-border800')};
+$color-border-700: #{map-val($colors, '--xui-color-border700')};
+$color-border-600: #{map-val($colors, '--xui-color-border600')};
+$color-border-500: #{map-val($colors, '--xui-color-border500')};
+$color-border-400: #{map-val($colors, '--xui-color-border400')};
+$color-border-300: #{map-val($colors, '--xui-color-border300')};
+$color-border-200: #{map-val($colors, '--xui-color-border200')};
+
+$color-primary-800: #{map-val($colors, '--xui-color-primary800')};
+$color-primary-700: #{map-val($colors, '--xui-color-primary700')};
+$color-primary-600: #{map-val($colors, '--xui-color-primary600')};
+$color-primary-500: #{map-val($colors, '--xui-color-primary500')};
+$color-primary-400: #{map-val($colors, '--xui-color-primary400')};
+$color-primary-300: #{map-val($colors, '--xui-color-primary300')};
+$color-primary-200: #{map-val($colors, '--xui-color-primary200')};
+
+$color-danger-800: #{map-val($colors, '--xui-color-danger800')};
+$color-danger-700: #{map-val($colors, '--xui-color-danger700')};
+$color-danger-600: #{map-val($colors, '--xui-color-danger600')};
+$color-danger-500: #{map-val($colors, '--xui-color-danger500')};
+$color-danger-400: #{map-val($colors, '--xui-color-danger400')};
+$color-danger-300: #{map-val($colors, '--xui-color-danger300')};
+$color-danger-200: #{map-val($colors, '--xui-color-danger200')};
