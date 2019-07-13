@@ -1,0 +1,81 @@
+@import "../shared/variables";
+
+:host {
+  $size: 20px;
+
+  display: inline-flex;
+  position: relative;
+  user-select: none;
+  vertical-align: baseline;
+
+  input[type="radio"] + .control {
+    align-items: center;
+    display: inline-flex;
+    border-radius: 50%;
+    height: $size;
+    justify-content: center;
+    position: relative;
+    width: $size;
+
+    &:after {
+      background: $color-base;
+      border: 1px solid $color-border-400;
+      border-radius: 50%;
+      box-sizing: border-box;
+      content: "";
+
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transition: $transition-time;
+    }
+  }
+
+  &:hover > input[type="radio"] + .control:after {
+    border-color: $color-primary-400;
+  }
+
+  input[type="radio"] {
+    z-index: -1;
+    opacity: 0;
+    width: 0;
+    margin: 0;
+    display: none;
+    position: absolute;
+  }
+
+  input[type="radio"]:checked + .control:after {
+    border: 6px solid $color-primary-400;
+  }
+
+  &:focus,
+  &.focused {
+    outline: none;
+
+    input[type="radio"] + .control {
+      box-shadow: 0 0 0 2px $color-primary-300;
+
+      &:after {
+        border-color: $color-primary-400;
+      }
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    > input[type="radio"] + .control:after {
+      background: $color-border-300;
+      border-color: $color-border-600;
+    }
+
+    &:focus,
+    &.focused {
+      > input[type="radio"] + .control {
+        box-shadow: none;
+      }
+    }
+  }
+}

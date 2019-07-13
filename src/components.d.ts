@@ -49,6 +49,13 @@ export namespace Components {
     'type': string;
     'value': string | number;
   }
+  interface XuiRadio {
+    'checked': boolean;
+    'disabled': boolean;
+    'name': string;
+    'tabindex': number;
+    'value': string | number | null;
+  }
 }
 
 declare global {
@@ -83,12 +90,19 @@ declare global {
     prototype: HTMLXuiInputElement;
     new (): HTMLXuiInputElement;
   };
+
+  interface HTMLXuiRadioElement extends Components.XuiRadio, HTMLStencilElement {}
+  var HTMLXuiRadioElement: {
+    prototype: HTMLXuiRadioElement;
+    new (): HTMLXuiRadioElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
     'xui-input': HTMLXuiInputElement;
+    'xui-radio': HTMLXuiRadioElement;
   }
 }
 
@@ -134,6 +148,14 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string | number;
   }
+  interface XuiRadio extends JSXBase.HTMLAttributes<HTMLXuiRadioElement> {
+    'checked'?: boolean;
+    'disabled'?: boolean;
+    'name'?: string;
+    'onSelected'?: (event: CustomEvent<void | string | number>) => void;
+    'tabindex'?: number;
+    'value'?: string | number | null;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
@@ -141,6 +163,7 @@ declare namespace LocalJSX {
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
     'xui-input': XuiInput;
+    'xui-radio': XuiRadio;
   }
 }
 
