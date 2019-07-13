@@ -41,6 +41,14 @@ export namespace Components {
     'color': string;
     'steps': number;
   }
+  interface XuiInput {
+    'name': string;
+    'placeholder': string;
+    'prefixes': Array<(input: HTMLXuiInputElement) => HTMLElement>;
+    'suffixes': Array<(input: HTMLXuiInputElement) => HTMLElement>;
+    'type': string;
+    'value': string | number;
+  }
 }
 
 declare global {
@@ -69,11 +77,18 @@ declare global {
     prototype: HTMLXuiColorElement;
     new (): HTMLXuiColorElement;
   };
+
+  interface HTMLXuiInputElement extends Components.XuiInput, HTMLStencilElement {}
+  var HTMLXuiInputElement: {
+    prototype: HTMLXuiInputElement;
+    new (): HTMLXuiInputElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
+    'xui-input': HTMLXuiInputElement;
   }
 }
 
@@ -111,12 +126,21 @@ declare namespace LocalJSX {
     'color'?: string;
     'steps'?: number;
   }
+  interface XuiInput extends JSXBase.HTMLAttributes<HTMLXuiInputElement> {
+    'name'?: string;
+    'placeholder'?: string;
+    'prefixes'?: Array<(input: HTMLXuiInputElement) => HTMLElement>;
+    'suffixes'?: Array<(input: HTMLXuiInputElement) => HTMLElement>;
+    'type'?: string;
+    'value'?: string | number;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
     'xui-button': XuiButton;
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
+    'xui-input': XuiInput;
   }
 }
 

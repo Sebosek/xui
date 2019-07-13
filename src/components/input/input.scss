@@ -1,0 +1,80 @@
+@import "../shared/variables";
+
+:host {
+  align-items: baseline;
+  background: $color-base;
+  border: 1px solid $color-border-400;
+  border-radius: 2px;
+  display: flex;
+  font-size: $font-size-base;
+  font-family: #{map-val($typography, '--xui-font-family')};
+  padding: 0;
+  position: relative;
+  transition: 0.3s;
+
+  .addon {
+    background: transparent;
+    align-self: stretch;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+
+    .control {
+      height: 60%;
+      display: inline-flex;
+      align-items: center;
+      margin-left: -12px;
+      margin-right: -12px;
+      padding: 0 12px;
+    }
+
+    &:first-child > .input__addon__control:last-child {
+      border-right: 1px solid $color-border-400;
+      margin-left: -12px;
+    }
+
+    &:last-child > .input__addon__control:first-child {
+      border-left: 1px solid $color-border-400;
+      margin-right: -12px;
+    }
+  }
+
+  & > input {
+    border: none;
+    background-color: transparent;
+    color: $color-font;
+    font-family: map-val($typography, '--xui-font-family');
+    font-size: 1em;
+    padding: calc(#{map-val($typography, '--xui-font-size--base')} * .8) #{map-val($typography, '--xui-font-size--base')};
+    padding: 0 #{map-val($typography, '--xui-font-size--base')};
+    line-height: 3;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    border-color: $color-primary-400;
+  }
+
+  &.focus,
+  &:focus,
+  &:focus-within {
+    border-color: $color-primary-400;
+    box-shadow: 0 0 0 2px $color-primary-300;
+  }
+
+  &[disabled] {
+    background: $color-border-300;
+    border-color: $color-border-600;
+    pointer-events: none;
+
+    &.focus,
+    &:focus,
+    &:focus-within {
+      box-shadow: none;
+    }
+  }
+}

@@ -67,6 +67,12 @@ $colors: (
   @return var(#{$key}, #{map-get($map, $key)});
 }
 
+$font-size-supplementary: #{map-val($typography, '--xui-font-size--supplementary')};
+$font-size-base: #{map-val($typography, '--xui-font-size--base')};
+$font-size-regular: #{map-val($typography, '--xui-font-size--regular')};
+
+$color-font: #{map-val($colors, '--xui-color-font')};
+
 $color-base: #{map-val($colors, '--xui-color-white')};
 
 $color-border-800: #{map-val($colors, '--xui-color-border800')};
