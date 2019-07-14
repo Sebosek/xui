@@ -42,6 +42,7 @@ export namespace Components {
     'steps': number;
   }
   interface XuiInput {
+    'disabled': boolean;
     'name': string;
     'placeholder': string;
     'prefixes': Array<(input: HTMLXuiInputElement) => HTMLElement>;
@@ -152,6 +153,7 @@ declare namespace LocalJSX {
     'steps'?: number;
   }
   interface XuiInput extends JSXBase.HTMLAttributes<HTMLXuiInputElement> {
+    'disabled'?: boolean;
     'name'?: string;
     'placeholder'?: string;
     'prefixes'?: Array<(input: HTMLXuiInputElement) => HTMLElement>;

@@ -10,6 +10,7 @@ export class Input {
   @Prop({ reflectToAttr: true, mutable: true }) type: string
   @Prop({ reflectToAttr: true, mutable: true }) value: string | number
   @Prop({ reflectToAttr: true, mutable: true }) name: string
+  @Prop({ reflectToAttr: true, mutable: true }) disabled: boolean
   @Prop() prefixes: Array<(input: HTMLXuiInputElement) => HTMLElement> = []
   @Prop() suffixes: Array<(input: HTMLXuiInputElement) => HTMLElement> = []
 
@@ -30,6 +31,7 @@ export class Input {
           name={this.name}
           value={this.value}
           onInput={this.setValue}
+          disabled={this.disabled}
         />
 
         {this.suffixes && this.suffixes.map((sufix) =>
