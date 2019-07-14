@@ -50,6 +50,11 @@ export namespace Components {
     'type': string;
     'value': string | number;
   }
+  interface XuiPopup {
+    'multipleClicks': boolean;
+    'offclickCloses': boolean;
+    'state': 'shown' | 'hidden';
+  }
   interface XuiRadio {
     'checked': boolean;
     'disabled': boolean;
@@ -96,6 +101,12 @@ declare global {
     new (): HTMLXuiInputElement;
   };
 
+  interface HTMLXuiPopupElement extends Components.XuiPopup, HTMLStencilElement {}
+  var HTMLXuiPopupElement: {
+    prototype: HTMLXuiPopupElement;
+    new (): HTMLXuiPopupElement;
+  };
+
   interface HTMLXuiRadioElement extends Components.XuiRadio, HTMLStencilElement {}
   var HTMLXuiRadioElement: {
     prototype: HTMLXuiRadioElement;
@@ -113,6 +124,7 @@ declare global {
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
     'xui-input': HTMLXuiInputElement;
+    'xui-popup': HTMLXuiPopupElement;
     'xui-radio': HTMLXuiRadioElement;
     'xui-toggle': HTMLXuiToggleElement;
   }
@@ -161,6 +173,11 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string | number;
   }
+  interface XuiPopup extends JSXBase.HTMLAttributes<HTMLXuiPopupElement> {
+    'multipleClicks'?: boolean;
+    'offclickCloses'?: boolean;
+    'state'?: 'shown' | 'hidden';
+  }
   interface XuiRadio extends JSXBase.HTMLAttributes<HTMLXuiRadioElement> {
     'checked'?: boolean;
     'disabled'?: boolean;
@@ -181,6 +198,7 @@ declare namespace LocalJSX {
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
     'xui-input': XuiInput;
+    'xui-popup': XuiPopup;
     'xui-radio': XuiRadio;
     'xui-toggle': XuiToggle;
   }

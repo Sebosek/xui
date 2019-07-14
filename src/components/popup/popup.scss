@@ -1,0 +1,71 @@
+@import "../shared/variables";
+
+:host {
+  background: $color-base;
+  box-shadow: 0 16px 24px -16px $color-border-400, 0 0 24px 0 $color-border-300;
+  border-radius: 2px;
+  position: absolute;
+  top: 100%;
+  // width: 100%;
+  display: none;
+}
+
+:host(.shown) {
+  display: block;
+}
+
+:host(.triangle-up),
+:host(.triangle-down),
+:host(.triangle-left),
+:host(.triangle-right) {
+  &:after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+}
+
+:host(.triangle-up) {
+  &:after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $color-base;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+:host(.triangle-down) {
+  &:after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid $color-base;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+:host(.triangle-left) {
+  &:after {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid $color-base;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+:host(.triangle-right) {
+  &:after {
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid $color-base;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
