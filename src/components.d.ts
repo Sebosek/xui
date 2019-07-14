@@ -50,6 +50,10 @@ export namespace Components {
     'type': string;
     'value': string | number;
   }
+  interface XuiMenu {}
+  interface XuiMenuItem {
+    'defaultCursor': boolean;
+  }
   interface XuiPopup {
     'multipleClicks': boolean;
     'offclickCloses': boolean;
@@ -101,6 +105,18 @@ declare global {
     new (): HTMLXuiInputElement;
   };
 
+  interface HTMLXuiMenuElement extends Components.XuiMenu, HTMLStencilElement {}
+  var HTMLXuiMenuElement: {
+    prototype: HTMLXuiMenuElement;
+    new (): HTMLXuiMenuElement;
+  };
+
+  interface HTMLXuiMenuItemElement extends Components.XuiMenuItem, HTMLStencilElement {}
+  var HTMLXuiMenuItemElement: {
+    prototype: HTMLXuiMenuItemElement;
+    new (): HTMLXuiMenuItemElement;
+  };
+
   interface HTMLXuiPopupElement extends Components.XuiPopup, HTMLStencilElement {}
   var HTMLXuiPopupElement: {
     prototype: HTMLXuiPopupElement;
@@ -124,6 +140,8 @@ declare global {
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
     'xui-input': HTMLXuiInputElement;
+    'xui-menu': HTMLXuiMenuElement;
+    'xui-menu-item': HTMLXuiMenuItemElement;
     'xui-popup': HTMLXuiPopupElement;
     'xui-radio': HTMLXuiRadioElement;
     'xui-toggle': HTMLXuiToggleElement;
@@ -173,6 +191,10 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string | number;
   }
+  interface XuiMenu extends JSXBase.HTMLAttributes<HTMLXuiMenuElement> {}
+  interface XuiMenuItem extends JSXBase.HTMLAttributes<HTMLXuiMenuItemElement> {
+    'defaultCursor'?: boolean;
+  }
   interface XuiPopup extends JSXBase.HTMLAttributes<HTMLXuiPopupElement> {
     'multipleClicks'?: boolean;
     'offclickCloses'?: boolean;
@@ -198,6 +220,8 @@ declare namespace LocalJSX {
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
     'xui-input': XuiInput;
+    'xui-menu': XuiMenu;
+    'xui-menu-item': XuiMenuItem;
     'xui-popup': XuiPopup;
     'xui-radio': XuiRadio;
     'xui-toggle': XuiToggle;

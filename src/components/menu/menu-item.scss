@@ -1,0 +1,36 @@
+@import "../shared/variables";
+
+:host {
+  align-items: center;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: $color-font;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: #{map-val($typography, '--xui-font-family')};
+  font-size: #{map-val($typography, '--xui-font-size--base')};
+  line-height: 1;
+  height: 42px;
+  margin: 0;
+  padding: 0 calc(#{map-val($typography, '--xui-font-size--base')} * 1.8);
+  position: relative;
+  transition: .3s;
+  text-transform: none;
+  user-select: none;
+  width: 100%;
+
+  * {
+    --xui-font-size: 1em;
+  }
+}
+
+:host(.default) {
+  cursor: default;
+}
+
+:host(:hover) {
+  background-color: $color-border-300;
+  // border-color: $color-border-400;
+}

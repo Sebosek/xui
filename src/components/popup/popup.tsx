@@ -1,4 +1,4 @@
-import { Component, Prop, Watch, Element, h, Listen, Host } from '@stencil/core';
+import { Component, Prop, Watch, Element, h, Listen } from '@stencil/core';
 import { portal } from '../../utils/portal';
 
 @Component({
@@ -60,13 +60,18 @@ export class Popup {
 
   render() {
     return (
-      <Host
-        class={{
-          'shown': this.state === 'shown'
-        }}
-      >
-        <slot></slot>
-      </Host>
+      <div {...this.styles()}>
+        <slot />
+      </div>
     )
+  }
+
+  private styles() {
+    return ({
+      'class': {
+        'popup': true,
+        'shown': this.state === 'shown',
+      }
+    })
   }
 }
