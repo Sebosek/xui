@@ -1,0 +1,53 @@
+@import "../shared/variables";
+
+:host {
+  $color: rgba(map-get($colors, '--xui-color-font'), .7);
+  $arrow-size: 4px;
+  $position-buttom: 140%;
+
+  position: relative;
+
+  > .tooltip {
+    background: $color;
+    border-radius: 4px;
+    bottom: $position-buttom;
+    color: $color-base;
+    font-family: #{map-val($typography, '--xui-font-family')};
+    font-size: $font-size-supplementary;
+    left: 50%;
+    max-width: 320px;
+    opacity: 0;
+    padding: 8px 12px;
+    position: absolute;
+    pointer-events: none;
+    text-transform: none;
+    transform: translateX(-50%);
+    transition: .3s;
+    z-index: 1;
+    white-space: nowrap;
+  }
+
+  > .beak {
+    border-style: solid;
+    border-width: $arrow-size $arrow-size 0 $arrow-size;
+    border-color: $color transparent transparent transparent;
+    bottom: calc(#{$position-buttom} - #{$arrow-size});
+    content: '';
+    display: block;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: .3s;
+  }
+}
+
+:host(:hover) {
+  > .tooltip {
+    opacity: 1;
+  }
+
+  > .beak {
+    opacity: 1;
+  }
+}

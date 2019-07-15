@@ -70,6 +70,9 @@ export namespace Components {
     'disabled': boolean;
     'switched': boolean;
   }
+  interface XuiTooltip {
+    'text': string;
+  }
 }
 
 declare global {
@@ -134,6 +137,12 @@ declare global {
     prototype: HTMLXuiToggleElement;
     new (): HTMLXuiToggleElement;
   };
+
+  interface HTMLXuiTooltipElement extends Components.XuiTooltip, HTMLStencilElement {}
+  var HTMLXuiTooltipElement: {
+    prototype: HTMLXuiTooltipElement;
+    new (): HTMLXuiTooltipElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
@@ -145,6 +154,7 @@ declare global {
     'xui-popup': HTMLXuiPopupElement;
     'xui-radio': HTMLXuiRadioElement;
     'xui-toggle': HTMLXuiToggleElement;
+    'xui-tooltip': HTMLXuiTooltipElement;
   }
 }
 
@@ -213,6 +223,9 @@ declare namespace LocalJSX {
     'onChanged'?: (event: CustomEvent<boolean>) => void;
     'switched'?: boolean;
   }
+  interface XuiTooltip extends JSXBase.HTMLAttributes<HTMLXuiTooltipElement> {
+    'text'?: string;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
@@ -225,6 +238,7 @@ declare namespace LocalJSX {
     'xui-popup': XuiPopup;
     'xui-radio': XuiRadio;
     'xui-toggle': XuiToggle;
+    'xui-tooltip': XuiTooltip;
   }
 }
 
