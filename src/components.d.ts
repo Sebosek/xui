@@ -6,7 +6,12 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  type,
+} from './components/callout/callout.type';
+import {
+  state,
+} from './components/callout/callout.state';
 
 export namespace Components {
   interface MyComponent {
@@ -28,6 +33,13 @@ export namespace Components {
     'ghost': boolean;
     'text': string;
     'type': 'default' | 'primary' | 'danger';
+  }
+  interface XuiCallout {
+    'closeable': boolean;
+    'destroy': () => Promise<void>;
+    'state': state;
+    'timeout': number;
+    'type': type | null;
   }
   interface XuiCheckbox {
     'checked': boolean;
@@ -90,6 +102,12 @@ declare global {
     new (): HTMLXuiButtonElement;
   };
 
+  interface HTMLXuiCalloutElement extends Components.XuiCallout, HTMLStencilElement {}
+  var HTMLXuiCalloutElement: {
+    prototype: HTMLXuiCalloutElement;
+    new (): HTMLXuiCalloutElement;
+  };
+
   interface HTMLXuiCheckboxElement extends Components.XuiCheckbox, HTMLStencilElement {}
   var HTMLXuiCheckboxElement: {
     prototype: HTMLXuiCheckboxElement;
@@ -146,6 +164,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
     'xui-button': HTMLXuiButtonElement;
+    'xui-callout': HTMLXuiCalloutElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
     'xui-input': HTMLXuiInputElement;
@@ -178,6 +197,12 @@ declare namespace LocalJSX {
     'ghost'?: boolean;
     'text'?: string;
     'type'?: 'default' | 'primary' | 'danger';
+  }
+  interface XuiCallout extends JSXBase.HTMLAttributes<HTMLXuiCalloutElement> {
+    'closeable'?: boolean;
+    'state'?: state;
+    'timeout'?: number;
+    'type'?: type | null;
   }
   interface XuiCheckbox extends JSXBase.HTMLAttributes<HTMLXuiCheckboxElement> {
     'checked'?: boolean;
@@ -230,6 +255,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'my-component': MyComponent;
     'xui-button': XuiButton;
+    'xui-callout': XuiCallout;
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
     'xui-input': XuiInput;
