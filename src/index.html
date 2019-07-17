@@ -7,6 +7,16 @@
 
   <script type="module" src="/build/xui.esm.js"></script>
   <script nomodule src="/build/xui.js"></script>
+  <style type="text/css">
+    .box {
+      align-items: center;
+      background: hsla(320, 100%, 50%, 0.15);
+      border: 1px solid hsla(320, 100%, 50%, 0.15);
+      display: flex;
+      height: 60px;
+      justify-content: center;
+    }
+  </style>
 
 </head>
 <body>
@@ -162,7 +172,8 @@
           <xui-menu-item>Hello</xui-menu-item>
           <xui-menu-item>Menu item which should be so long</xui-menu-item>
           <xui-menu-item default-cursor>
-            <xui-checkbox></xui-checkbox>
+            <!-- <xui-checkbox></xui-checkbox>
+            <xui-radio></xui-radio> -->
             <span>Send e-mail</span>
           </xui-menu-item>
         </xui-menu>
@@ -221,6 +232,24 @@
       Hello, I am a basic danger callout.
     </xui-callout>
   </div>
+
+  <xui-grid>
+    <xui-grid-column
+      cols="2"
+    >
+      <div class="box">2 column</div>
+    </xui-grid-column>
+    <xui-grid-column
+      cols="3"
+    >
+      <div class="box">3 column</div>
+    </xui-grid-column>
+    <xui-grid-column
+      cols="7"
+    >
+      <div class="box">7 column</div>
+    </xui-grid-column>
+  </xui-grid>
 
   <script>
       document.getElementById('select').addEventListener('click', () => {

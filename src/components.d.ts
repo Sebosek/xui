@@ -12,6 +12,12 @@ import {
 import {
   state,
 } from './components/callout/callout.state';
+import {
+  gutter,
+} from './components/grid/grid.gutter';
+import {
+  cols,
+} from './components/grid/grid.column.cols';
 
 export namespace Components {
   interface MyComponent {
@@ -52,6 +58,23 @@ export namespace Components {
   interface XuiColor {
     'color': string;
     'steps': number;
+  }
+  interface XuiGrid {
+    'gutter': gutter | undefined;
+  }
+  interface XuiGridColumn {
+    /**
+    * Defines general column width
+    */
+    'cols': cols | undefined;
+    /**
+    * Defines column pulling
+    */
+    'pull': cols | undefined;
+    /**
+    * Defines column pushing
+    */
+    'push': cols | undefined;
   }
   interface XuiInput {
     'disabled': boolean;
@@ -120,6 +143,18 @@ declare global {
     new (): HTMLXuiColorElement;
   };
 
+  interface HTMLXuiGridElement extends Components.XuiGrid, HTMLStencilElement {}
+  var HTMLXuiGridElement: {
+    prototype: HTMLXuiGridElement;
+    new (): HTMLXuiGridElement;
+  };
+
+  interface HTMLXuiGridColumnElement extends Components.XuiGridColumn, HTMLStencilElement {}
+  var HTMLXuiGridColumnElement: {
+    prototype: HTMLXuiGridColumnElement;
+    new (): HTMLXuiGridColumnElement;
+  };
+
   interface HTMLXuiInputElement extends Components.XuiInput, HTMLStencilElement {}
   var HTMLXuiInputElement: {
     prototype: HTMLXuiInputElement;
@@ -167,6 +202,8 @@ declare global {
     'xui-callout': HTMLXuiCalloutElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
+    'xui-grid': HTMLXuiGridElement;
+    'xui-grid-column': HTMLXuiGridColumnElement;
     'xui-input': HTMLXuiInputElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
@@ -217,6 +254,23 @@ declare namespace LocalJSX {
     'color'?: string;
     'steps'?: number;
   }
+  interface XuiGrid extends JSXBase.HTMLAttributes<HTMLXuiGridElement> {
+    'gutter'?: gutter | undefined;
+  }
+  interface XuiGridColumn extends JSXBase.HTMLAttributes<HTMLXuiGridColumnElement> {
+    /**
+    * Defines general column width
+    */
+    'cols'?: cols | undefined;
+    /**
+    * Defines column pulling
+    */
+    'pull'?: cols | undefined;
+    /**
+    * Defines column pushing
+    */
+    'push'?: cols | undefined;
+  }
   interface XuiInput extends JSXBase.HTMLAttributes<HTMLXuiInputElement> {
     'disabled'?: boolean;
     'name'?: string;
@@ -258,6 +312,8 @@ declare namespace LocalJSX {
     'xui-callout': XuiCallout;
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
+    'xui-grid': XuiGrid;
+    'xui-grid-column': XuiGridColumn;
     'xui-input': XuiInput;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;

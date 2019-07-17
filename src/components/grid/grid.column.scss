@@ -1,0 +1,64 @@
+$_columns: 12;
+$_column-percent: 100 / $_columns;
+$_breakpoints: (
+  xs: 568px,
+  sm: 768px,
+  md: 960px,
+  lg: 1200px,
+);
+
+%column {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+
+@mixin column($width: 1) {
+  @extend %column;
+  @include column-width($width);
+}
+
+@mixin column-width($width) {
+  @if $width == 1 {
+    flex-grow: 1;
+  } @else {
+    flex: 0 0 $width * 1%;
+  }
+}
+
+@mixin column-push($offset) {
+  left: $offset * 1%;
+}
+
+@mixin column-pull($offset) {
+  right: $offset * 1%;
+}
+
+:host,
+:host(.col) {
+  @include column();
+}
+
+@for $i from 1 through $_columns {
+  :host(.col-#{$i}) {
+    @include column($_column-percent * $i);
+  }
+
+  :host(.col-push-#{$i}) {
+    @include column-push($_column-percent * $i);
+  }
+
+  :host(.col-pull-#{$i}) {
+    @include column-pull($_column-percent * $i);
+  }
+}
+
+@each $name, $value in $_breakpoints {
+  @media (min-width: $value) {
+    @for $i from 1 through $_columns {
+      :host(.col-#{$name}-#{$i}) {
+        @include column-width($_column-percent * $i);
+      }
+    }
+  }
+}
