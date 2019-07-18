@@ -6,7 +6,7 @@
     background: transparent;
     border: 1px solid #{map-val($colors, '--xui-color-border500')};
     border-radius: 4px;
-    color: #{map-val($colors, '--xui-color-font')};
+    color: $color-font;
     cursor: pointer;
     display: inline-flex;
     font-family: #{map-val($typography, '--xui-font-family')};

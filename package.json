@@ -21,7 +21,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@stencil/core": "^1.1.6",
+    "@stencil/core": "^1.1.7",
     "@stencil/sass": "^1.0.1"
   },
   "license": "MIT"

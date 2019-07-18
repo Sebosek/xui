@@ -72,6 +72,7 @@ $font-size-base: #{map-val($typography, '--xui-font-size--base')};
 $font-size-regular: #{map-val($typography, '--xui-font-size--regular')};
 
 $color-font: #{map-val($colors, '--xui-color-font')};
+$color-font-light: #{map-val($colors, '--xui-color-font--light')};
 
 $color-base: #{map-val($colors, '--xui-color-white')};
 

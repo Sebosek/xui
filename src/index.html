@@ -172,8 +172,7 @@
           <xui-menu-item>Hello</xui-menu-item>
           <xui-menu-item>Menu item which should be so long</xui-menu-item>
           <xui-menu-item default-cursor>
-            <!-- <xui-checkbox></xui-checkbox>
-            <xui-radio></xui-radio> -->
+            <xui-checkbox></xui-checkbox>
             <span>Send e-mail</span>
           </xui-menu-item>
         </xui-menu>
@@ -250,6 +249,23 @@
       <div class="box">7 column</div>
     </xui-grid-column>
   </xui-grid>
+
+  <xui-tabs
+    active-tab="first"
+  >
+    <xui-tab-item
+      title="First tab"
+      key="first"
+    >
+      <span>The content of Tab one</span>
+    </xui-tab-item>
+    <xui-tab-item
+      title="Second tab"
+      key="second"
+    >
+      <span>The content of Tab two</span>
+    </xui-tab-item>
+  </xui-tabs>
 
   <script>
       document.getElementById('select').addEventListener('click', () => {

@@ -1,0 +1,51 @@
+@import "../shared/variables";
+
+.slot {
+  display: none;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    border-bottom: 1px solid $color-border-400;
+    display: flex;
+    flex-direction: row;
+
+    a {
+      border-bottom: 2px solid transparent;
+      color: $color-font-light;
+      cursor: pointer;
+      font-family: #{map-val($typography, '--xui-font-family')};
+      font-size: #{map-val($typography, '--xui-font-size--base')};
+      line-height: 3;
+      padding: 0 calc(#{map-val($typography, '--xui-font-size--base')} * 1.8);
+      position: relative;
+      bottom: -1px;
+      text-decoration: none;
+      transition: .3s;
+
+      &.active {
+        color: $color-font;
+        border-color: $color-primary-500;
+      }
+
+      &:hover {
+        color: $color-font;
+        border-color: $color-border-500;
+      }
+    }
+  }
+
+  .body {
+    > div {
+      display: none;
+
+      &.active {
+        display: block;
+        padding: calc(#{map-val($typography, '--xui-font-size--base')} * 1.8);
+      }
+    }
+  }
+}

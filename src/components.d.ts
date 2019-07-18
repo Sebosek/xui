@@ -101,6 +101,13 @@ export namespace Components {
     'tabindex': number;
     'value': string | number | null;
   }
+  interface XuiTabItem {
+    'key': string;
+    'title': string;
+  }
+  interface XuiTabs {
+    'activeTab': string;
+  }
   interface XuiToggle {
     'disabled': boolean;
     'switched': boolean;
@@ -185,6 +192,18 @@ declare global {
     new (): HTMLXuiRadioElement;
   };
 
+  interface HTMLXuiTabItemElement extends Components.XuiTabItem, HTMLStencilElement {}
+  var HTMLXuiTabItemElement: {
+    prototype: HTMLXuiTabItemElement;
+    new (): HTMLXuiTabItemElement;
+  };
+
+  interface HTMLXuiTabsElement extends Components.XuiTabs, HTMLStencilElement {}
+  var HTMLXuiTabsElement: {
+    prototype: HTMLXuiTabsElement;
+    new (): HTMLXuiTabsElement;
+  };
+
   interface HTMLXuiToggleElement extends Components.XuiToggle, HTMLStencilElement {}
   var HTMLXuiToggleElement: {
     prototype: HTMLXuiToggleElement;
@@ -209,6 +228,8 @@ declare global {
     'xui-menu-item': HTMLXuiMenuItemElement;
     'xui-popup': HTMLXuiPopupElement;
     'xui-radio': HTMLXuiRadioElement;
+    'xui-tab-item': HTMLXuiTabItemElement;
+    'xui-tabs': HTMLXuiTabsElement;
     'xui-toggle': HTMLXuiToggleElement;
     'xui-tooltip': HTMLXuiTooltipElement;
   }
@@ -297,6 +318,13 @@ declare namespace LocalJSX {
     'tabindex'?: number;
     'value'?: string | number | null;
   }
+  interface XuiTabItem extends JSXBase.HTMLAttributes<HTMLXuiTabItemElement> {
+    'key'?: string;
+    'title'?: string;
+  }
+  interface XuiTabs extends JSXBase.HTMLAttributes<HTMLXuiTabsElement> {
+    'activeTab'?: string;
+  }
   interface XuiToggle extends JSXBase.HTMLAttributes<HTMLXuiToggleElement> {
     'disabled'?: boolean;
     'onChanged'?: (event: CustomEvent<boolean>) => void;
@@ -319,6 +347,8 @@ declare namespace LocalJSX {
     'xui-menu-item': XuiMenuItem;
     'xui-popup': XuiPopup;
     'xui-radio': XuiRadio;
+    'xui-tab-item': XuiTabItem;
+    'xui-tabs': XuiTabs;
     'xui-toggle': XuiToggle;
     'xui-tooltip': XuiTooltip;
   }
