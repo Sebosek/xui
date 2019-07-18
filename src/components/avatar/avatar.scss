@@ -1,0 +1,66 @@
+@import "../shared/variables";
+
+figure {
+  $base-size: 40px;
+
+  align-items: center;
+  background: $color-primary-400;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-family: #{map-val($typography, '--xui-font-family')};
+  font-size: .85rem;
+  height: $base-size;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  width: $base-size;
+
+  img {
+    border-radius: 50%;
+    height: 100%;
+    width: auto;
+  }
+
+  &[data-initials] {
+    &:before {
+      content: attr(data-initials);
+      color: $color-base;
+    }
+  }
+
+  &.xl {
+    $base-size: 64px;
+
+    font-size: 1.8rem;
+    height: $base-size;
+    width: $base-size;
+  }
+
+  &.l {
+    $base-size: 48px;
+
+    font-size: 1.4em;
+    height: $base-size;
+    width: $base-size;
+  }
+
+  &.s {
+    $base-size: 32px;
+
+    font-size: .8em;
+    height: $base-size;
+    width: $base-size;
+  }
+
+  &.xs {
+    $base-size: 24px;
+
+    font-size: .6em;
+    height: $base-size;
+    width: $base-size;
+  }
+}
