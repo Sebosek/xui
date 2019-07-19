@@ -7,6 +7,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  size,
+} from './components/avatar/avatar.size';
+import {
   type,
 } from './components/callout/callout.type';
 import {
@@ -33,6 +36,11 @@ export namespace Components {
     * The middle name
     */
     'middle': string;
+  }
+  interface XuiAvatar {
+    'initials': string;
+    'size': size;
+    'src': string;
   }
   interface XuiButton {
     'disabled': boolean;
@@ -126,6 +134,12 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
+  interface HTMLXuiAvatarElement extends Components.XuiAvatar, HTMLStencilElement {}
+  var HTMLXuiAvatarElement: {
+    prototype: HTMLXuiAvatarElement;
+    new (): HTMLXuiAvatarElement;
+  };
+
   interface HTMLXuiButtonElement extends Components.XuiButton, HTMLStencilElement {}
   var HTMLXuiButtonElement: {
     prototype: HTMLXuiButtonElement;
@@ -217,6 +231,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'xui-avatar': HTMLXuiAvatarElement;
     'xui-button': HTMLXuiButtonElement;
     'xui-callout': HTMLXuiCalloutElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
@@ -249,6 +264,11 @@ declare namespace LocalJSX {
     * The middle name
     */
     'middle'?: string;
+  }
+  interface XuiAvatar extends JSXBase.HTMLAttributes<HTMLXuiAvatarElement> {
+    'initials'?: string;
+    'size'?: size;
+    'src'?: string;
   }
   interface XuiButton extends JSXBase.HTMLAttributes<HTMLXuiButtonElement> {
     'disabled'?: boolean;
@@ -336,6 +356,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'my-component': MyComponent;
+    'xui-avatar': XuiAvatar;
     'xui-button': XuiButton;
     'xui-callout': XuiCallout;
     'xui-checkbox': XuiCheckbox;
