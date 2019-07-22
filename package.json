@@ -1,5 +1,5 @@
 {
-  "name": "xui",
+  "name": "@xui/components",
   "version": "0.1.0",
   "description": "xui [:zai] component library",
   "main": "dist/index.js",
@@ -18,11 +18,13 @@
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "version-bump": "node scripts/version-bump.js"
   },
   "devDependencies": {
     "@stencil/core": "^1.1.7",
-    "@stencil/sass": "^1.0.1"
+    "@stencil/sass": "^1.0.1",
+    "minimist": "^1.2.0"
   },
-  "license": "MIT"
+  "license": "Apache 2.0"
 }
