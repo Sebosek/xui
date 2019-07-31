@@ -288,16 +288,33 @@
     src="http://sebastianbusek.cz/extra/fry.jpg"
   ></xui-avatar>
 
+  <xui-input
+    id="x"
+  ></xui-input>
+
+  <xui-password
+    value="hello"
+    id="p"
+  ></xui-password>
+
   <script>
-      document.getElementById('select').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
-        const state = popup.getAttribute('state');
-        if (!state || state === 'hidden') {
-          popup.setAttribute('state', 'shown');
-        } else {
-          popup.setAttribute('state', 'hidden');
-        }
-      });
-    </script>
+    document.getElementById('select').addEventListener('click', () => {
+      const popup = document.getElementById('popup');
+      const state = popup.getAttribute('state');
+      if (!state || state === 'hidden') {
+        popup.setAttribute('state', 'shown');
+      } else {
+        popup.setAttribute('state', 'hidden');
+      }
+    });
+
+    const x = document.getElementById('x');
+    x.suffixes = [(_) => {
+      const span = document.createElement('span');
+      span.innerText = "🐇";
+
+      return span;
+    }]
+  </script>
 </body>
 </html>

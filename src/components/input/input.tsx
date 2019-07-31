@@ -21,7 +21,9 @@ export class Input {
       <Host>
         {this.prefixes && this.prefixes.map((prefix) =>
           <div class="addon">
-            <div class="control">{prefix(this.el)}</div>
+            <div class="control">
+              {this.renderEl(prefix)}
+            </div>
           </div>
         )}
 
@@ -36,7 +38,9 @@ export class Input {
 
         {this.suffixes && this.suffixes.map((sufix) =>
           <div class="addon">
-            <div class="control">{sufix(this.el)}</div>
+            <div class="control">
+              {this.renderEl(sufix)}
+            </div>
           </div>
         )}
       </Host>
@@ -45,5 +49,14 @@ export class Input {
 
   private setValue(ev: any) {
     this.value = ev.target.value
+  }
+
+  private renderEl(fnc: (input: HTMLXuiInputElement) => HTMLElement) {
+    const res = fnc(this.el)
+    if (res.outerHTML) {
+      return <div innerHTML={res.outerHTML}></div>
+    }
+
+    return res
   }
 }

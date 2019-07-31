@@ -23,6 +23,7 @@ import {
 } from './components/grid/grid.column.cols';
 
 export namespace Components {
+  interface BugComponent {}
   interface MyComponent {
     /**
     * The first name
@@ -97,6 +98,13 @@ export namespace Components {
   interface XuiMenuItem {
     'defaultCursor': boolean;
   }
+  interface XuiPassword {
+    'disabled': boolean;
+    'name': string;
+    'placeholder': string;
+    'readable': boolean;
+    'value': string | number;
+  }
   interface XuiPopup {
     'multipleClicks': boolean;
     'offclickCloses': boolean;
@@ -127,6 +135,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLBugComponentElement extends Components.BugComponent, HTMLStencilElement {}
+  var HTMLBugComponentElement: {
+    prototype: HTMLBugComponentElement;
+    new (): HTMLBugComponentElement;
+  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -194,6 +208,12 @@ declare global {
     new (): HTMLXuiMenuItemElement;
   };
 
+  interface HTMLXuiPasswordElement extends Components.XuiPassword, HTMLStencilElement {}
+  var HTMLXuiPasswordElement: {
+    prototype: HTMLXuiPasswordElement;
+    new (): HTMLXuiPasswordElement;
+  };
+
   interface HTMLXuiPopupElement extends Components.XuiPopup, HTMLStencilElement {}
   var HTMLXuiPopupElement: {
     prototype: HTMLXuiPopupElement;
@@ -230,6 +250,7 @@ declare global {
     new (): HTMLXuiTooltipElement;
   };
   interface HTMLElementTagNameMap {
+    'bug-component': HTMLBugComponentElement;
     'my-component': HTMLMyComponentElement;
     'xui-avatar': HTMLXuiAvatarElement;
     'xui-button': HTMLXuiButtonElement;
@@ -241,6 +262,7 @@ declare global {
     'xui-input': HTMLXuiInputElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
+    'xui-password': HTMLXuiPasswordElement;
     'xui-popup': HTMLXuiPopupElement;
     'xui-radio': HTMLXuiRadioElement;
     'xui-tab-item': HTMLXuiTabItemElement;
@@ -251,6 +273,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface BugComponent extends JSXBase.HTMLAttributes<HTMLBugComponentElement> {}
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
     * The first name
@@ -325,6 +348,13 @@ declare namespace LocalJSX {
   interface XuiMenuItem extends JSXBase.HTMLAttributes<HTMLXuiMenuItemElement> {
     'defaultCursor'?: boolean;
   }
+  interface XuiPassword extends JSXBase.HTMLAttributes<HTMLXuiPasswordElement> {
+    'disabled'?: boolean;
+    'name'?: string;
+    'placeholder'?: string;
+    'readable'?: boolean;
+    'value'?: string | number;
+  }
   interface XuiPopup extends JSXBase.HTMLAttributes<HTMLXuiPopupElement> {
     'multipleClicks'?: boolean;
     'offclickCloses'?: boolean;
@@ -355,6 +385,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'bug-component': BugComponent;
     'my-component': MyComponent;
     'xui-avatar': XuiAvatar;
     'xui-button': XuiButton;
@@ -366,6 +397,7 @@ declare namespace LocalJSX {
     'xui-input': XuiInput;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;
+    'xui-password': XuiPassword;
     'xui-popup': XuiPopup;
     'xui-radio': XuiRadio;
     'xui-tab-item': XuiTabItem;
