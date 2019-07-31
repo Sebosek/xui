@@ -1,4 +1,5 @@
-import { Component, Event, h, Prop, Host, Listen, EventEmitter, Watch } from '@stencil/core';
+import { Component, Event, h, Prop, Host, Listen, EventEmitter, Watch, Element } from '@stencil/core';
+import { state } from '../shared/state';
 
 @Component({
   tag: 'xui-checkbox',
@@ -15,6 +16,7 @@ export class Checkbox {
   @Prop({ reflect: true, mutable: true }) value: string | number
   @Prop({ reflect: true, mutable: true }) disabled: boolean = false
   @Prop({ reflect: true, mutable: true }) tabindex: number = 0
+  @Prop({ reflect: true, mutable: true }) state: state = 'none'
 
   @Watch('disabled') watchDisabled(newValue: boolean) {
     if (newValue) {
@@ -25,6 +27,14 @@ export class Checkbox {
       this.tabindex = this.__definedIndex;
     }
   }
+
+  @Watch('state') watchState(newValue: string) {
+    if (newValue === 'focus') {
+      this.el.focus()
+    }
+  }
+
+  @Element() el: HTMLXuiCheckboxElement
 
   @Event() changed: EventEmitter<string | number | boolean>
 
@@ -43,15 +53,24 @@ export class Checkbox {
     this.watchDisabled(this.disabled)
   }
 
+  componentDidLoad() {
+    this.watchState(this.state)
+  }
+
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          [this.state]: true,
+        }}
+      >
         <input
           type="checkbox"
           checked={this.checked}
           name={this.name}
           value={this.value}
           disabled={this.disabled}
+          onFocus={() => console.log('running focus')}
         />
         <div class="control">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

@@ -1,4 +1,5 @@
 import { Component, h, Prop, Host, Watch } from '@stencil/core';
+import { state } from '../shared/state';
 
 @Component({
   tag: 'xui-button',
@@ -12,7 +13,7 @@ export class Button {
   @Prop({ reflect: true }) type: 'default' | 'primary' | 'danger' = 'default'
   @Prop({ reflect: true }) disabled: boolean
   @Prop({ reflect: true }) ghost: boolean
-  @Prop({ reflect: true, mutable: true }) state: 'none' | 'hover' | 'focus' | 'active' = 'none'
+  @Prop({ reflect: true, mutable: true }) state: state = 'none'
 
   @Watch('state') watchState(newValue: string) {
     if (newValue === 'focus') {

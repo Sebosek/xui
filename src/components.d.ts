@@ -10,10 +10,13 @@ import {
   size,
 } from './components/avatar/avatar.size';
 import {
+  state,
+} from './components/shared/state';
+import {
   type,
 } from './components/callout/callout.type';
 import {
-  state,
+  state as state1,
 } from './components/callout/callout.state';
 import {
   gutter,
@@ -45,7 +48,7 @@ export namespace Components {
   interface XuiButton {
     'disabled': boolean;
     'ghost': boolean;
-    'state': 'none' | 'hover' | 'focus' | 'active';
+    'state': state;
     'text': string;
     'type': 'default' | 'primary' | 'danger';
   }
@@ -61,6 +64,7 @@ export namespace Components {
     'disabled': boolean;
     'intermediate': boolean;
     'name': string;
+    'state': state;
     'tabindex': number;
     'value': string | number;
   }
@@ -277,7 +281,7 @@ declare namespace LocalJSX {
   interface XuiButton extends JSXBase.HTMLAttributes<HTMLXuiButtonElement> {
     'disabled'?: boolean;
     'ghost'?: boolean;
-    'state'?: 'none' | 'hover' | 'focus' | 'active';
+    'state'?: state;
     'text'?: string;
     'type'?: 'default' | 'primary' | 'danger';
   }
@@ -293,6 +297,7 @@ declare namespace LocalJSX {
     'intermediate'?: boolean;
     'name'?: string;
     'onChanged'?: (event: CustomEvent<string | number | boolean>) => void;
+    'state'?: state;
     'tabindex'?: number;
     'value'?: string | number;
   }

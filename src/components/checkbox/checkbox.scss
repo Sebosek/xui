@@ -4,7 +4,7 @@
  * BUG #1070 workaround for node cloning
  * (https://github.com/ionic-team/stencil/issues/1070)
  *
- * Hide all direct children with `:host > * { display: none; }`and show only the last of type.
+ * Hide all direct children with `:host > * { display: none; }` and show only the last of type.
  **/
 
 $size: 20px;
@@ -60,15 +60,22 @@ $size: 20px;
   }
 
   &:hover,
-  &.hovered {
+  &.hover {
     input[type="checkbox"] + .control {
       border-color: $color-primary-400;
     }
   }
 
+  &:active,
+  &.active {
+    input[type="checkbox"] + .control {
+      border-color: $color-primary-600;
+      box-shadow: 0 0 0 2px $color-primary-400;
+    }
+  }
+
   &:focus,
-  &:focus-within,
-  &.focused {
+  &:focus-within {
     outline: none;
 
     input[type="checkbox"] + .control {
