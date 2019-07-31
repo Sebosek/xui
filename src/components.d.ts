@@ -45,6 +45,7 @@ export namespace Components {
   interface XuiButton {
     'disabled': boolean;
     'ghost': boolean;
+    'state': 'none' | 'hover' | 'focus' | 'active';
     'text': string;
     'type': 'default' | 'primary' | 'danger';
   }
@@ -276,6 +277,7 @@ declare namespace LocalJSX {
   interface XuiButton extends JSXBase.HTMLAttributes<HTMLXuiButtonElement> {
     'disabled'?: boolean;
     'ghost'?: boolean;
+    'state'?: 'none' | 'hover' | 'focus' | 'active';
     'text'?: string;
     'type'?: 'default' | 'primary' | 'danger';
   }

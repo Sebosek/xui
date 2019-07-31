@@ -1,4 +1,4 @@
-import { Component, h, Prop, Host } from '@stencil/core';
+import { Component, h, Prop, Host, Watch } from '@stencil/core';
 
 @Component({
   tag: 'xui-button',
@@ -6,10 +6,23 @@ import { Component, h, Prop, Host } from '@stencil/core';
   scoped: true,
 })
 export class Button {
+  private __button: HTMLButtonElement
+
   @Prop({ reflect: true }) text: string
   @Prop({ reflect: true }) type: 'default' | 'primary' | 'danger' = 'default'
   @Prop({ reflect: true }) disabled: boolean
   @Prop({ reflect: true }) ghost: boolean
+  @Prop({ reflect: true, mutable: true }) state: 'none' | 'hover' | 'focus' | 'active' = 'none'
+
+  @Watch('state') watchState(newValue: string) {
+    if (newValue === 'focus') {
+      this.__button.focus()
+    }
+  }
+
+  componentDidLoad() {
+    this.watchState(this.state)
+  }
 
   /**
    * Improvement!
@@ -26,9 +39,10 @@ export class Button {
           'disabled': this.disabled,
           'primary': this.type === 'primary',
           'danger': this.type === 'danger',
+          [this.state]: true,
         }}
       >
-        {this.text && <button>{this.text}</button>}
+        {this.text && <button ref={(el: HTMLButtonElement) => this.__button = el}>{this.text}</button>}
       </Host>
     )
   }

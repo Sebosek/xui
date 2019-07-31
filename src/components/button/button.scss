@@ -1,5 +1,9 @@
 @import "../shared/variables";
 
+@mixin focus($color) {
+  box-shadow: 0 0 0 2px $color;
+}
+
 :host {
   > button {
     align-items: center;
@@ -21,16 +25,18 @@
     outline: none;
 
     &:focus {
-      box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-border300')};
+      @include focus($color-border-300);
     }
   }
 
-  &:hover > button {
-    background: #{map-val($colors, '--xui-color-border200')};
+  &:hover > button,
+  &.hover > button {
+    background: $color-border-200;
   }
 
-  &:active > button {
-    background-color: $color-border-300;
+  &:active > button,
+  &.active > button {
+    background-color: $color-border-400;
   }
 
   &.primary {
@@ -40,16 +46,18 @@
       color: $color-base;
 
       &:focus {
-        box-shadow: 0 0 0 2px $color-primary-300;
+        @include focus($color-primary-300);
       }
     }
 
-    &:hover > button {
+    &:hover > button,
+    &.hover > button {
       background: $color-primary-400;
       border-color: $color-primary-400;
     }
 
-    &:active > button {
+    &:active > button,
+    &.active > button {
       background: $color-primary-600;
       border-color: $color-primary-600;
       box-shadow: 0 0 0 2px $color-primary-400;
@@ -67,12 +75,14 @@
       }
     }
 
-    &:hover > button {
+    &:hover > button,
+    &.hover > button {
       background: $color-danger-400;
       border-color: $color-danger-400;
     }
 
-    &:active > button {
+    &:active > button,
+    &.active > button {
       background: $color-danger-600;
       border-color: $color-danger-600;
       box-shadow: 0 0 0 2px $color-danger-400;
@@ -85,7 +95,8 @@
       background-color: transparent;
     }
 
-    &:hover {
+    &:hover,
+    &.hover {
       > button {
         background: #{map-val($colors, '--xui-color-border200')};
         border-color: transparent;
@@ -97,9 +108,18 @@
         color: #{map-val($colors, '--xui-color-primary500')};
       }
 
-      &:hover {
+      &:hover,
+      &.hover {
         > button {
-          background: #{map-val($colors, '--xui-color-primary100')};
+          background: $color-primary-100;
+          border-color: transparent;
+        }
+      }
+
+      &:active,
+      &.active {
+        > button {
+          background: $color-primary-100;
           border-color: transparent;
         }
       }
@@ -107,12 +127,21 @@
 
     &.danger {
       > button {
-        color: #{map-val($colors, '--xui-color-danger500')};
+        color: $color-danger-500;
       }
 
-      &:hover {
+      &:hover,
+      &.hover {
         > button {
-          background: #{map-val($colors, '--xui-color-danger100')};
+          background: $color-danger-100;
+          border-color: transparent;
+        }
+      }
+
+      &:active,
+      &.active {
+        > button {
+          background: $color-danger-100;
           border-color: transparent;
         }
       }
