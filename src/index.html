@@ -167,12 +167,16 @@
         text="Select an option"
       ></xui-button>
 
-      <xui-popup id="popup" offclick-closes multiple-clicks>
+      <xui-popup
+        id="popup"
+        offclick-closes
+        multiple-clicks
+      >
         <xui-menu>
           <xui-menu-item>Hello</xui-menu-item>
           <xui-menu-item>Menu item which should be so long</xui-menu-item>
           <xui-menu-item default-cursor>
-            <xui-checkbox></xui-checkbox>
+            <xui-checkbox name="foo"></xui-checkbox>
             <span>Send e-mail</span>
           </xui-menu-item>
         </xui-menu>
@@ -289,15 +293,15 @@
   ></xui-avatar>
 
   <script>
-      document.getElementById('select').addEventListener('click', () => {
-        const popup = document.getElementById('popup');
-        const state = popup.getAttribute('state');
-        if (!state || state === 'hidden') {
-          popup.setAttribute('state', 'shown');
-        } else {
-          popup.setAttribute('state', 'hidden');
-        }
-      });
-    </script>
+    document.getElementById('select').addEventListener('click', () => {
+      const popup = document.getElementById('popup');
+      const state = popup.getAttribute('state');
+      if (!state || state === 'hidden') {
+        popup.setAttribute('state', 'shown');
+      } else {
+        popup.setAttribute('state', 'hidden');
+      }
+    });
+  </script>
 </body>
 </html>

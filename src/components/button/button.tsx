@@ -11,6 +11,13 @@ export class Button {
   @Prop({ reflect: true }) disabled: boolean
   @Prop({ reflect: true }) ghost: boolean
 
+  /**
+   * Improvement!
+   * Support 3 level of buttones:
+   * 1st (primary) - fully filled button, mono font color
+   * 2nd (secondary) - button with a border and font color based on button type
+   * 3rd (tertiary) - ghost button
+   **/
   render() {
     return (
       <Host

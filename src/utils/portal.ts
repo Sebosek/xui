@@ -1,3 +1,7 @@
+interface MountOptions {
+  deepClone?: boolean
+}
+
 class Portal {
   private clone: HTMLElement
   private el: HTMLElement
@@ -10,9 +14,9 @@ class Portal {
     return this.el
   }
 
-  public mount(el: HTMLElement) {
-    this.el = el;
-    this.clone = el.cloneNode(true) as HTMLElement
+  public mount(el: HTMLElement, { deepClone }: MountOptions = {}) {
+    this.el = el
+    this.clone = el.cloneNode(deepClone) as HTMLElement
 
     this.el.insertAdjacentElement('afterend', this.clone)
     this.el.style.visibility = 'hidden'
@@ -47,4 +51,4 @@ class Portal {
   }
 }
 
-export const portal = new Portal();  
+export const portal = new Portal();

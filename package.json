@@ -22,7 +22,7 @@
     "version-bump": "node scripts/version-bump.js"
   },
   "devDependencies": {
-    "@stencil/core": "^1.1.7",
+    "@stencil/core": "^1.2.2",
     "@stencil/sass": "^1.0.1",
     "minimist": "^1.2.0"
   },

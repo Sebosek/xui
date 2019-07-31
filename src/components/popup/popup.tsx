@@ -20,7 +20,7 @@ export class Popup {
 
   @Watch('state') watchState(newValue : 'shown' | 'hidden') {
     if (newValue === 'shown') {
-      portal.mount(this.el)
+      portal.mount(this.el, { deepClone: true })
 
       if (this.offclickCloses) {
         setTimeout(() => document.addEventListener('click', this.handleOffClick), 0)

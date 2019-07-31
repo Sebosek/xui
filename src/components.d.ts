@@ -73,14 +73,17 @@ export namespace Components {
   interface XuiGridColumn {
     /**
     * Defines general column width
+    * @type {cols}
     */
     'cols': cols | undefined;
     /**
     * Defines column pulling
+    * @type {cols}
     */
     'pull': cols | undefined;
     /**
     * Defines column pushing
+    * @type {cols}
     */
     'push': cols | undefined;
   }
@@ -301,14 +304,17 @@ declare namespace LocalJSX {
   interface XuiGridColumn extends JSXBase.HTMLAttributes<HTMLXuiGridColumnElement> {
     /**
     * Defines general column width
+    * @type {cols}
     */
     'cols'?: cols | undefined;
     /**
     * Defines column pulling
+    * @type {cols}
     */
     'pull'?: cols | undefined;
     /**
     * Defines column pushing
+    * @type {cols}
     */
     'push'?: cols | undefined;
   }
