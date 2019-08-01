@@ -4,29 +4,29 @@
   > button {
     align-items: center;
     background: transparent;
-    border: 1px solid #{map-val($colors, '--xui-color-border500')};
+    border: 1px solid $color-border-500;
     border-radius: 4px;
     color: $color-font;
     cursor: pointer;
     display: inline-flex;
-    font-family: #{map-val($typography, '--xui-font-family')};
-    font-size: #{map-val($typography, '--xui-font-size--base')};
+    font-family: $font-family;
+    font-size: $font-size-base;
     font-weight: 400;
     line-height: 3;
     margin: 0;
-    padding: 0 calc(#{map-val($typography, '--xui-font-size--base')} * 1.8);
+    padding: 0 calc(#{$font-size-base} * 1.8);
     position: relative;
     transition: .3s;
     user-select: none;
     outline: none;
 
     &:focus {
-      box-shadow: 0 0 0 2px #{map-val($colors, '--xui-color-border300')};
+      box-shadow: 0 0 0 2px $color-border-300;
     }
   }
 
   &:hover > button {
-    background: #{map-val($colors, '--xui-color-border200')};
+    background: $color-border-200;
   }
 
   &:active > button {
@@ -87,7 +87,7 @@
 
     &:hover {
       > button {
-        background: #{map-val($colors, '--xui-color-border200')};
+        background: $color-border-200;
         border-color: transparent;
       }
     }
@@ -121,9 +121,9 @@
 
   &[disabled] {
     > button {
-      background-color: #{map-val($colors, '--xui-color-border300')};
-      border-color: #{map-val($colors, '--xui-color-border600')};
-      color: #{map-val($colors, '--xui-color-border600')};
+      background-color: $color-border-300;
+      border-color: $color-border-600;
+      color: $color-border-600;
       cursor: not-allowed;
 
       &:focus {
@@ -132,8 +132,8 @@
     }
 
     &:hover > button {
-      background-color: #{map-val($colors, '--xui-color-border300')};
-      border-color: #{map-val($colors, '--xui-color-border600')};
+      background-color: $color-border-300;
+      border-color: $color-border-600;
     }
   }
 }

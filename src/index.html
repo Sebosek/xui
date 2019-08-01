@@ -23,7 +23,7 @@
 
   <!-- <xui-color></xui-color> -->
 
-  <div>
+  <!-- <div>
     <xui-button
       text="primary"
       type="primary"
@@ -129,6 +129,10 @@
       value="Disabled input"
       disabled
     ></xui-input>
+
+    <xui-input
+      id="x"
+    ></xui-input>
   </div>
 
   <div>
@@ -160,26 +164,6 @@
     ></xui-toggle>
   </div>
 
-  <div style="padding: 20px; overflow: hidden;">
-    <div style="position: relative;">
-      <xui-button
-        id="select"
-        text="Select an option"
-      ></xui-button>
-
-      <xui-popup id="popup" offclick-closes multiple-clicks>
-        <xui-menu>
-          <xui-menu-item>Hello</xui-menu-item>
-          <xui-menu-item>Menu item which should be so long</xui-menu-item>
-          <xui-menu-item default-cursor>
-            <xui-checkbox></xui-checkbox>
-            <span>Send e-mail</span>
-          </xui-menu-item>
-        </xui-menu>
-      </xui-popup>
-    </div>
-  </div>
-
   <div>
     <xui-tooltip
       text="This is a tooltip."
@@ -205,7 +189,7 @@
   </div>
 
   <div>
-    <!-- <xui-callout
+    <xui-callout
     >
       Hello, I am a basic callout.
     </xui-callout>
@@ -224,7 +208,7 @@
       type="success"
     >
       Hello, I am a basic success callout.
-    </xui-callout> -->
+    </xui-callout>
     <xui-callout
       type="danger"
     >
@@ -286,16 +270,48 @@
   <xui-avatar
     size="xl"
     src="http://sebastianbusek.cz/extra/fry.jpg"
-  ></xui-avatar>
-
-  <xui-input
-    id="x"
-  ></xui-input>
+  ></xui-avatar> -->
 
   <xui-password
     value="hello"
     id="p"
   ></xui-password>
+
+  <div style="padding: 20px; overflow: hidden;">
+    <div style="position: relative;">
+      <xui-button
+        id="select"
+        text="Select an option"
+      ></xui-button>
+
+      <xui-over-element id="popup" offclick-closes multiple-clicks>
+        <span>hello.</span>
+        <!-- <xui-menu>
+          <xui-menu-item>Hello</xui-menu-item>
+          <xui-menu-item>Menu item which should be so long</xui-menu-item>
+          <xui-menu-item default-cursor>
+            <xui-checkbox></xui-checkbox>
+            <span>Send e-mail</span>
+          </xui-menu-item>
+        </xui-menu> -->
+      </xui-over-element>
+    </div>
+  </div>
+
+  <div style="padding: 250px;">
+    <xui-popover
+      shown
+      title="Popover!"
+      direction="down"
+    >
+      <div slot="content">
+        <div>Hello this is a popover content.</div>
+      </div>
+      <!-- <xui-button
+        text="popover"
+      ></xui-button> -->
+    </xui-popover>
+  </div>
 
   <script>
     document.getElementById('select').addEventListener('click', () => {
@@ -309,12 +325,14 @@
     });
 
     const x = document.getElementById('x');
-    x.suffixes = [(_) => {
-      const span = document.createElement('span');
-      span.innerText = "🐇";
+    if (x) {
+      x.suffixes = [(_) => {
+        const span = document.createElement('span');
+        span.innerText = "🐇";
 
-      return span;
-    }]
+        return span;
+      }]
+    }
   </script>
 </body>
 </html>

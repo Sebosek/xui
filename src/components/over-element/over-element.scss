@@ -1,0 +1,15 @@
+@import "../shared/variables";
+
+:host {
+  display: block;
+
+  > div {
+    display: none;
+    position: absolute;
+    top: 100%;
+
+    &.shown {
+      display: block;
+    }
+  }
+}
