@@ -2,11 +2,11 @@ import { Component, Prop, Watch, Element, h, Listen } from '@stencil/core';
 import { portal } from '../../utils/portal';
 
 @Component({
-  tag: 'xui-popup',
-  styleUrl: 'popup.scss',
+  tag: 'xui-over-element',
+  styleUrl: 'over-element.scss',
   shadow: true
 })
-export class Popup {
+export class OverElemenet {
   constructor() {
     this.handleOffClick = this.handleOffClick.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -50,8 +50,8 @@ export class Popup {
       return
     }
 
-    if (target.closest('xui-popup')) {
-      // click inside pop-up
+    if (target.closest('xui-over-element')) {
+      // click inside over-element
       return
     }
 
@@ -60,18 +60,13 @@ export class Popup {
 
   render() {
     return (
-      <div {...this.styles()}>
+      <div
+        class={{
+          'shown': this.state === 'shown',
+        }}
+      >
         <slot />
       </div>
     )
-  }
-
-  private styles() {
-    return ({
-      'class': {
-        'popup': true,
-        'shown': this.state === 'shown',
-      }
-    })
   }
 }

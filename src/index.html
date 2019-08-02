@@ -56,6 +56,8 @@
       ghost
     ></xui-button>
   </div>
+
+  <!--
   <div>
     <xui-tooltip
       text="Disabled primary button"
@@ -79,7 +81,7 @@
     ></xui-button>
   </div>
 
-  <!-- <div>
+  <div>
     <xui-checkbox
     ></xui-checkbox>
 
@@ -147,6 +149,10 @@
     <xui-input
       value="Disabled input"
       disabled
+    ></xui-input>
+
+    <xui-input
+      id="x"
     ></xui-input>
   </div>
 
@@ -246,7 +252,7 @@
   </div>
 
   <div>
-    <!-- <xui-callout
+    <xui-callout
     >
       Hello, I am a basic callout.
     </xui-callout>
@@ -265,7 +271,7 @@
       type="success"
     >
       Hello, I am a basic success callout.
-    </xui-callout> -->
+    </xui-callout>
     <xui-callout
       type="danger"
     >
@@ -329,6 +335,47 @@
     src="http://sebastianbusek.cz/extra/fry.jpg"
   ></xui-avatar>
 
+  <xui-password
+    value="hello"
+    id="p"
+  ></xui-password>
+
+  <div style="padding: 20px; overflow: hidden;">
+    <div style="position: relative;">
+      <xui-button
+        id="select"
+        text="Select an option"
+      ></xui-button>
+
+      <xui-over-element id="popup" offclick-closes multiple-clicks>
+        <span>hello.</span>
+        <!-- <xui-menu>
+          <xui-menu-item>Hello</xui-menu-item>
+          <xui-menu-item>Menu item which should be so long</xui-menu-item>
+          <xui-menu-item default-cursor>
+            <xui-checkbox></xui-checkbox>
+            <span>Send e-mail</span>
+          </xui-menu-item>
+        </xui-menu> -->
+      </xui-over-element>
+    </div>
+  </div>
+
+  <div style="padding: 250px;">
+    <xui-popover
+      shown
+      title="Popover!"
+      direction="down"
+    >
+      <div slot="content">
+        <div>Hello this is a popover content.</div>
+      </div>
+      <!-- <xui-button
+        text="popover"
+      ></xui-button> -->
+    </xui-popover>
+  </div>
+
   <script>
     document.getElementById('select').addEventListener('click', () => {
       const popup = document.getElementById('popup');
@@ -339,6 +386,16 @@
         popup.setAttribute('state', 'hidden');
       }
     });
+
+    const x = document.getElementById('x');
+    if (x) {
+      x.suffixes = [(_) => {
+        const span = document.createElement('span');
+        span.innerText = "🐇";
+
+        return span;
+      }]
+    }
   </script>
 </body>
 </html>

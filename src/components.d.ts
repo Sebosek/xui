@@ -26,6 +26,7 @@ import {
 } from './components/grid/grid.column.cols';
 
 export namespace Components {
+  interface BugComponent {}
   interface MyComponent {
     /**
     * The first name
@@ -105,10 +106,21 @@ export namespace Components {
   interface XuiMenuItem {
     'defaultCursor': boolean;
   }
-  interface XuiPopup {
+  interface XuiOverElement {
     'multipleClicks': boolean;
     'offclickCloses': boolean;
     'state': 'shown' | 'hidden';
+  }
+  interface XuiPassword {
+    'disabled': boolean;
+    'name': string;
+    'placeholder': string;
+    'readable': boolean;
+    'value': string | number;
+  }
+  interface XuiPopover {
+    'direction': 'top' | 'left' | 'bottom' | 'right' | 'none';
+    'title': string;
   }
   interface XuiRadio {
     'checked': boolean;
@@ -136,6 +148,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLBugComponentElement extends Components.BugComponent, HTMLStencilElement {}
+  var HTMLBugComponentElement: {
+    prototype: HTMLBugComponentElement;
+    new (): HTMLBugComponentElement;
+  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -203,10 +221,22 @@ declare global {
     new (): HTMLXuiMenuItemElement;
   };
 
-  interface HTMLXuiPopupElement extends Components.XuiPopup, HTMLStencilElement {}
-  var HTMLXuiPopupElement: {
-    prototype: HTMLXuiPopupElement;
-    new (): HTMLXuiPopupElement;
+  interface HTMLXuiOverElementElement extends Components.XuiOverElement, HTMLStencilElement {}
+  var HTMLXuiOverElementElement: {
+    prototype: HTMLXuiOverElementElement;
+    new (): HTMLXuiOverElementElement;
+  };
+
+  interface HTMLXuiPasswordElement extends Components.XuiPassword, HTMLStencilElement {}
+  var HTMLXuiPasswordElement: {
+    prototype: HTMLXuiPasswordElement;
+    new (): HTMLXuiPasswordElement;
+  };
+
+  interface HTMLXuiPopoverElement extends Components.XuiPopover, HTMLStencilElement {}
+  var HTMLXuiPopoverElement: {
+    prototype: HTMLXuiPopoverElement;
+    new (): HTMLXuiPopoverElement;
   };
 
   interface HTMLXuiRadioElement extends Components.XuiRadio, HTMLStencilElement {}
@@ -239,6 +269,7 @@ declare global {
     new (): HTMLXuiTooltipElement;
   };
   interface HTMLElementTagNameMap {
+    'bug-component': HTMLBugComponentElement;
     'my-component': HTMLMyComponentElement;
     'xui-avatar': HTMLXuiAvatarElement;
     'xui-button': HTMLXuiButtonElement;
@@ -250,7 +281,9 @@ declare global {
     'xui-input': HTMLXuiInputElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
-    'xui-popup': HTMLXuiPopupElement;
+    'xui-over-element': HTMLXuiOverElementElement;
+    'xui-password': HTMLXuiPasswordElement;
+    'xui-popover': HTMLXuiPopoverElement;
     'xui-radio': HTMLXuiRadioElement;
     'xui-tab-item': HTMLXuiTabItemElement;
     'xui-tabs': HTMLXuiTabsElement;
@@ -260,6 +293,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface BugComponent extends JSXBase.HTMLAttributes<HTMLBugComponentElement> {}
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
     * The first name
@@ -339,10 +373,21 @@ declare namespace LocalJSX {
   interface XuiMenuItem extends JSXBase.HTMLAttributes<HTMLXuiMenuItemElement> {
     'defaultCursor'?: boolean;
   }
-  interface XuiPopup extends JSXBase.HTMLAttributes<HTMLXuiPopupElement> {
+  interface XuiOverElement extends JSXBase.HTMLAttributes<HTMLXuiOverElementElement> {
     'multipleClicks'?: boolean;
     'offclickCloses'?: boolean;
     'state'?: 'shown' | 'hidden';
+  }
+  interface XuiPassword extends JSXBase.HTMLAttributes<HTMLXuiPasswordElement> {
+    'disabled'?: boolean;
+    'name'?: string;
+    'placeholder'?: string;
+    'readable'?: boolean;
+    'value'?: string | number;
+  }
+  interface XuiPopover extends JSXBase.HTMLAttributes<HTMLXuiPopoverElement> {
+    'direction'?: 'top' | 'left' | 'bottom' | 'right' | 'none';
+    'title'?: string;
   }
   interface XuiRadio extends JSXBase.HTMLAttributes<HTMLXuiRadioElement> {
     'checked'?: boolean;
@@ -370,6 +415,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'bug-component': BugComponent;
     'my-component': MyComponent;
     'xui-avatar': XuiAvatar;
     'xui-button': XuiButton;
@@ -381,7 +427,9 @@ declare namespace LocalJSX {
     'xui-input': XuiInput;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;
-    'xui-popup': XuiPopup;
+    'xui-over-element': XuiOverElement;
+    'xui-password': XuiPassword;
+    'xui-popover': XuiPopover;
     'xui-radio': XuiRadio;
     'xui-tab-item': XuiTabItem;
     'xui-tabs': XuiTabs;

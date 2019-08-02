@@ -1,0 +1,110 @@
+@import "../shared/variables";
+
+.popover {
+  background: $color-base;
+  // box-shadow: 0 16px 24px -8px $color-border-300, 0 0 32px 4px $color-border-300;
+  box-shadow: 0px 8px 12px -4px $color-border-300;
+  border: 1px solid $color-border-300;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 12px 20px;
+  position: relative;
+  font-family: $font-family;
+  font-size: $font-size-base;
+
+  .title {
+    font-size: $font-size-regular;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &.top,
+  &.down,
+  &.left,
+  &.right {
+    &:before,
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+  }
+
+  &.top {
+    &:before {
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid $color-border-300;
+      bottom: calc(100% + 1px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:after {
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid $color-base;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.down {
+    &:before {
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid $color-border-300;
+      top: calc(100% + 1px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &:after {
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid $color-base;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.left {
+    &:before {
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid $color-border-300;
+      right: calc(100% + 1px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:after {
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid $color-base;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.right {
+    &:before {
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid $color-border-300;
+      left: calc(100% + 1px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:after {
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid $color-base;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
