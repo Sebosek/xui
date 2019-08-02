@@ -114,6 +114,7 @@ export namespace Components {
     'checked': boolean;
     'disabled': boolean;
     'name': string;
+    'state': state;
     'tabindex': number;
     'value': string | number | null;
   }
@@ -348,6 +349,7 @@ declare namespace LocalJSX {
     'disabled'?: boolean;
     'name'?: string;
     'onSelected'?: (event: CustomEvent<void | string | number>) => void;
+    'state'?: state;
     'tabindex'?: number;
     'value'?: string | number | null;
   }

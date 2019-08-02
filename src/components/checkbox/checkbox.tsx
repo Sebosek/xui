@@ -16,7 +16,7 @@ export class Checkbox {
   @Prop({ reflect: true, mutable: true }) value: string | number
   @Prop({ reflect: true, mutable: true }) disabled: boolean = false
   @Prop({ reflect: true, mutable: true }) tabindex: number = 0
-  @Prop({ reflect: true, mutable: true }) state: state = 'none'
+  @Prop({ reflect: true, mutable: true }) state: state = 'normal'
 
   @Watch('disabled') watchDisabled(newValue: boolean) {
     if (newValue) {
@@ -70,7 +70,6 @@ export class Checkbox {
           name={this.name}
           value={this.value}
           disabled={this.disabled}
-          onFocus={() => console.log('running focus')}
         />
         <div class="control">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

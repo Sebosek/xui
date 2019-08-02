@@ -1,4 +1,5 @@
-import { Component, Event, EventEmitter, h, Host, Prop, Listen, Watch } from "@stencil/core";
+import { Component, Element, Event, EventEmitter, h, Host, Prop, Listen, Watch } from '@stencil/core';
+import { state } from '../shared/state';
 
 @Component({
   tag: 'xui-radio',
@@ -15,6 +16,7 @@ export class Radio {
   @Prop({ reflectToAttr: true, mutable: true }) value: string | number | null
   @Prop({ reflectToAttr: true, mutable: true }) disabled: boolean = false
   @Prop({ reflect: true, mutable: true }) tabindex: number = 0
+  @Prop({ reflect: true, mutable: true }) state: state = 'normal'
 
   @Watch('disabled') watchDisabled(newValue: boolean) {
     if (newValue) {
@@ -25,6 +27,16 @@ export class Radio {
       this.tabindex = this.__definedIndex;
     }
   }
+
+  @Watch('state') watchState(newValue: string) {
+    if (newValue === 'focus') {
+      console.log('setting radio focus')
+      this.el.focus()
+      console.log('radio focus set')
+    }
+  }
+
+  @Element() el: HTMLXuiRadioElement
 
   @Event() selected: EventEmitter<void | string | number>
 
@@ -47,11 +59,17 @@ export class Radio {
     if (this.checked) {
       this.handleSelect()
     }
+
+    this.watchState(this.state)
   }
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          [this.state]: true,
+        }}
+      >
         <input
           type="radio"
           name={this.name}

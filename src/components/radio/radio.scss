@@ -31,8 +31,19 @@
     }
   }
 
-  &:hover > input[type="radio"] + .control:after {
-    border-color: $color-primary-400;
+  &:hover,
+  &.hover {
+    > input[type="radio"] + .control:after {
+      border-color: $color-primary-400;
+    }
+  }
+
+  &:active,
+  &.active {
+    input[type="radio"] + .control:after {
+      border-color: $color-primary-600;
+      box-shadow: 0 0 0 2px $color-primary-400;
+    }
   }
 
   input[type="radio"] {

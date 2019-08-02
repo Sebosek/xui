@@ -1,1 +1,1 @@
-export type state = 'none' | 'hover' | 'focus' | 'active'
+export type state = 'normal' | 'hover' | 'focus' | 'active'

@@ -13,7 +13,7 @@ export class Button {
   @Prop({ reflect: true }) type: 'default' | 'primary' | 'danger' = 'default'
   @Prop({ reflect: true }) disabled: boolean
   @Prop({ reflect: true }) ghost: boolean
-  @Prop({ reflect: true, mutable: true }) state: state = 'none'
+  @Prop({ reflect: true, mutable: true }) state: state = 'normal'
 
   @Watch('state') watchState(newValue: string) {
     if (newValue === 'focus') {
