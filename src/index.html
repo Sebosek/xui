@@ -23,7 +23,7 @@
 
   <!-- <xui-color></xui-color> -->
 
-  <div>
+  <!-- <div>
     <xui-button
       text="primary"
       type="primary"
@@ -55,7 +55,7 @@
       text="default"
       ghost
     ></xui-button>
-  </div>
+  </div> -->
 
   <!--
   <div>
@@ -115,7 +115,7 @@
     ></xui-checkbox>
   </div> -->
 
-  <div>
+  <!-- <div>
     <xui-checkbox
       state="none"
     ></xui-checkbox>
@@ -334,6 +334,7 @@
     size="xl"
     src="http://sebastianbusek.cz/extra/fry.jpg"
   ></xui-avatar>
+   -->
 
   <xui-password
     value="hello"
@@ -349,19 +350,29 @@
 
       <xui-over-element id="popup" offclick-closes multiple-clicks>
         <span>hello.</span>
-        <!-- <xui-menu>
-          <xui-menu-item>Hello</xui-menu-item>
-          <xui-menu-item>Menu item which should be so long</xui-menu-item>
-          <xui-menu-item default-cursor>
-            <xui-checkbox></xui-checkbox>
-            <span>Send e-mail</span>
-          </xui-menu-item>
-        </xui-menu> -->
       </xui-over-element>
     </div>
   </div>
 
-  <div style="padding: 250px;">
+  <div>
+    <xui-input
+      state="normal"
+    ></xui-input>
+
+    <xui-input
+      state="hover"
+    ></xui-input>
+
+    <xui-input
+      state="focus"
+    ></xui-input>
+
+    <xui-input
+      state="active"
+    ></xui-input>
+  </div>
+
+  <!-- <div style="padding: 250px;">
     <xui-popover
       shown
       title="Popover!"
@@ -370,22 +381,25 @@
       <div slot="content">
         <div>Hello this is a popover content.</div>
       </div>
-      <!-- <xui-button
+      <xui-button
         text="popover"
-      ></xui-button> -->
+      ></xui-button>
     </xui-popover>
-  </div>
+  </div> -->
 
   <script>
-    document.getElementById('select').addEventListener('click', () => {
-      const popup = document.getElementById('popup');
-      const state = popup.getAttribute('state');
-      if (!state || state === 'hidden') {
-        popup.setAttribute('state', 'shown');
-      } else {
-        popup.setAttribute('state', 'hidden');
-      }
-    });
+    const select = document.getElementById('select');
+    if (select) {
+      select.addEventListener('click', () => {
+        const popup = document.getElementById('popup');
+        const state = popup.getAttribute('state');
+        if (!state || state === 'hidden') {
+          popup.setAttribute('state', 'shown');
+        } else {
+          popup.setAttribute('state', 'hidden');
+        }
+      });
+    }
 
     const x = document.getElementById('x');
     if (x) {

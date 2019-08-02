@@ -1,4 +1,5 @@
 import { Component, Element, h, Prop, Host } from '@stencil/core';
+import { state } from '../shared/state';
 
 @Component( {
   tag: 'xui-input',
@@ -13,12 +14,17 @@ export class Input {
   @Prop({ reflectToAttr: true, mutable: true }) disabled: boolean
   @Prop() prefixes: Array<(input: HTMLXuiInputElement) => HTMLElement> = []
   @Prop() suffixes: Array<(input: HTMLXuiInputElement) => HTMLElement> = []
+  @Prop({ reflect: true, mutable: true }) state: state = 'normal'
 
   @Element() el: HTMLXuiInputElement
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          [this.state]: true
+        }}
+      >
         {this.prefixes && this.prefixes.map((prefix) =>
           <div class="addon">
             <div class="control">
@@ -34,6 +40,7 @@ export class Input {
           value={this.value}
           onInput={this.setValue}
           disabled={this.disabled}
+          autofocus={this.state === 'focus'}
         />
 
         {this.suffixes && this.suffixes.map((sufix) =>

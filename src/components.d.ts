@@ -98,6 +98,7 @@ export namespace Components {
     'name': string;
     'placeholder': string;
     'prefixes': Array<(input: HTMLXuiInputElement) => HTMLElement>;
+    'state': state;
     'suffixes': Array<(input: HTMLXuiInputElement) => HTMLElement>;
     'type': string;
     'value': string | number;
@@ -365,6 +366,7 @@ declare namespace LocalJSX {
     'name'?: string;
     'placeholder'?: string;
     'prefixes'?: Array<(input: HTMLXuiInputElement) => HTMLElement>;
+    'state'?: state;
     'suffixes'?: Array<(input: HTMLXuiInputElement) => HTMLElement>;
     'type'?: string;
     'value'?: string | number;

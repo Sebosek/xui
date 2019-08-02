@@ -55,14 +55,20 @@
     }
   }
 
+  &.hover,
   &:hover {
     border-color: $color-primary-400;
   }
 
-  &.focus,
-  &:focus,
+  &.focus:focus-within,
   &:focus-within {
     border-color: $color-primary-400;
+    box-shadow: 0 0 0 2px $color-primary-300;
+  }
+
+  &.active,
+  &:active {
+    border-color: $color-primary-600;
     box-shadow: 0 0 0 2px $color-primary-300;
   }
 

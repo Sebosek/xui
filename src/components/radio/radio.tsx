@@ -30,9 +30,7 @@ export class Radio {
 
   @Watch('state') watchState(newValue: string) {
     if (newValue === 'focus') {
-      console.log('setting radio focus')
       this.el.focus()
-      console.log('radio focus set')
     }
   }
 
