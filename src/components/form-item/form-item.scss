@@ -1,0 +1,25 @@
+label {
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    margin-bottom: 4px;
+    display: flex;
+  }
+
+  .content {
+    margin-bottom: 4px;
+  }
+
+  .messages {
+    margin-bottom: 12px;
+
+    &:empty {
+      margin-bottom: 28px;
+    }
+
+    & > * {
+      margin-bottom: 4px;
+    }
+  }
+}

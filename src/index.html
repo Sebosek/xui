@@ -410,6 +410,33 @@
     >Hello, I'm caption</xui-caption>
   </div>
 
+  <xui-form-item>
+    <xui-label
+      slot="label"
+    >Form item</xui-label>
+    <xui-input></xui-input>
+  </xui-form-item>
+  <xui-form-item>
+    <xui-label
+      slot="label"
+    >Form item</xui-label>
+    <xui-input></xui-input>
+    <xui-caption
+      type="error"
+      slot="message"
+    >A validation failed</xui-caption>
+    <xui-caption
+      type="info"
+      slot="message"
+    >Just a info message</xui-caption>
+  </xui-form-item>
+  <xui-form-item>
+    <xui-label
+      slot="label"
+    >Form item</xui-label>
+    <xui-input></xui-input>
+  </xui-form-item>
+
   <script>
     const select = document.getElementById('select');
     if (select) {
