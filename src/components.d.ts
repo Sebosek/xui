@@ -76,6 +76,7 @@ export namespace Components {
     'color': string;
     'steps': number;
   }
+  interface XuiFormControl {}
   interface XuiFormItem {}
   interface XuiGrid {
     'gutter': gutter | undefined;
@@ -203,6 +204,12 @@ declare global {
     new (): HTMLXuiColorElement;
   };
 
+  interface HTMLXuiFormControlElement extends Components.XuiFormControl, HTMLStencilElement {}
+  var HTMLXuiFormControlElement: {
+    prototype: HTMLXuiFormControlElement;
+    new (): HTMLXuiFormControlElement;
+  };
+
   interface HTMLXuiFormItemElement extends Components.XuiFormItem, HTMLStencilElement {}
   var HTMLXuiFormItemElement: {
     prototype: HTMLXuiFormItemElement;
@@ -301,6 +308,7 @@ declare global {
     'xui-caption': HTMLXuiCaptionElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
+    'xui-form-control': HTMLXuiFormControlElement;
     'xui-form-item': HTMLXuiFormItemElement;
     'xui-grid': HTMLXuiGridElement;
     'xui-grid-column': HTMLXuiGridColumnElement;
@@ -370,6 +378,7 @@ declare namespace LocalJSX {
     'color'?: string;
     'steps'?: number;
   }
+  interface XuiFormControl extends JSXBase.HTMLAttributes<HTMLXuiFormControlElement> {}
   interface XuiFormItem extends JSXBase.HTMLAttributes<HTMLXuiFormItemElement> {}
   interface XuiGrid extends JSXBase.HTMLAttributes<HTMLXuiGridElement> {
     'gutter'?: gutter | undefined;
@@ -456,6 +465,7 @@ declare namespace LocalJSX {
     'xui-caption': XuiCaption;
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
+    'xui-form-control': XuiFormControl;
     'xui-form-item': XuiFormItem;
     'xui-grid': XuiGrid;
     'xui-grid-column': XuiGridColumn;

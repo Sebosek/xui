@@ -437,6 +437,22 @@
     <xui-input></xui-input>
   </xui-form-item>
 
+  <xui-form-item>
+    <xui-label
+      slot="label"
+    >Form item</xui-label>
+    <xui-form-control>
+      <xui-checkbox
+        slot="control"
+      ></xui-checkbox>
+      <span>Agree with everything</span>
+    </xui-form-control>
+    <xui-caption
+      type="info"
+      slot="message"
+    >Just a info message</xui-caption>
+  </xui-form-item>
+
   <script>
     const select = document.getElementById('select');
     if (select) {
