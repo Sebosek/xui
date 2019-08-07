@@ -3,7 +3,7 @@ import { Component, h, Host } from '@stencil/core';
 @Component({
   tag: 'xui-label',
   styleUrl: 'label.scss',
-  shadow: true
+  scoped: true
 })
 export class Label {
   render() {

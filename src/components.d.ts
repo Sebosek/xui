@@ -60,6 +60,9 @@ export namespace Components {
     'timeout': number;
     'type': type | null;
   }
+  interface XuiCaption {
+    'type': 'info' | 'success' | 'question' | 'error';
+  }
   interface XuiCheckbox {
     'checked': boolean;
     'disabled': boolean;
@@ -181,6 +184,12 @@ declare global {
     new (): HTMLXuiCalloutElement;
   };
 
+  interface HTMLXuiCaptionElement extends Components.XuiCaption, HTMLStencilElement {}
+  var HTMLXuiCaptionElement: {
+    prototype: HTMLXuiCaptionElement;
+    new (): HTMLXuiCaptionElement;
+  };
+
   interface HTMLXuiCheckboxElement extends Components.XuiCheckbox, HTMLStencilElement {}
   var HTMLXuiCheckboxElement: {
     prototype: HTMLXuiCheckboxElement;
@@ -282,6 +291,7 @@ declare global {
     'xui-avatar': HTMLXuiAvatarElement;
     'xui-button': HTMLXuiButtonElement;
     'xui-callout': HTMLXuiCalloutElement;
+    'xui-caption': HTMLXuiCaptionElement;
     'xui-checkbox': HTMLXuiCheckboxElement;
     'xui-color': HTMLXuiColorElement;
     'xui-grid': HTMLXuiGridElement;
@@ -334,6 +344,9 @@ declare namespace LocalJSX {
     'state'?: state;
     'timeout'?: number;
     'type'?: type | null;
+  }
+  interface XuiCaption extends JSXBase.HTMLAttributes<HTMLXuiCaptionElement> {
+    'type'?: 'info' | 'success' | 'question' | 'error';
   }
   interface XuiCheckbox extends JSXBase.HTMLAttributes<HTMLXuiCheckboxElement> {
     'checked'?: boolean;
@@ -431,6 +444,7 @@ declare namespace LocalJSX {
     'xui-avatar': XuiAvatar;
     'xui-button': XuiButton;
     'xui-callout': XuiCallout;
+    'xui-caption': XuiCaption;
     'xui-checkbox': XuiCheckbox;
     'xui-color': XuiColor;
     'xui-grid': XuiGrid;
