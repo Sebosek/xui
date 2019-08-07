@@ -1,0 +1,9 @@
+@import '../shared/variables';
+
+:host {
+  color: $color-font;
+  line-height: 1;
+  font-size: $font-size-regular;
+  font-family: $font-family;
+  font-weight: 400;
+}

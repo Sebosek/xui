@@ -103,6 +103,7 @@ export namespace Components {
     'type': string;
     'value': string | number;
   }
+  interface XuiLabel {}
   interface XuiMenu {}
   interface XuiMenuItem {
     'defaultCursor': boolean;
@@ -210,6 +211,12 @@ declare global {
     new (): HTMLXuiInputElement;
   };
 
+  interface HTMLXuiLabelElement extends Components.XuiLabel, HTMLStencilElement {}
+  var HTMLXuiLabelElement: {
+    prototype: HTMLXuiLabelElement;
+    new (): HTMLXuiLabelElement;
+  };
+
   interface HTMLXuiMenuElement extends Components.XuiMenu, HTMLStencilElement {}
   var HTMLXuiMenuElement: {
     prototype: HTMLXuiMenuElement;
@@ -280,6 +287,7 @@ declare global {
     'xui-grid': HTMLXuiGridElement;
     'xui-grid-column': HTMLXuiGridColumnElement;
     'xui-input': HTMLXuiInputElement;
+    'xui-label': HTMLXuiLabelElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
     'xui-over-element': HTMLXuiOverElementElement;
@@ -371,6 +379,7 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string | number;
   }
+  interface XuiLabel extends JSXBase.HTMLAttributes<HTMLXuiLabelElement> {}
   interface XuiMenu extends JSXBase.HTMLAttributes<HTMLXuiMenuElement> {}
   interface XuiMenuItem extends JSXBase.HTMLAttributes<HTMLXuiMenuItemElement> {
     'defaultCursor'?: boolean;
@@ -427,6 +436,7 @@ declare namespace LocalJSX {
     'xui-grid': XuiGrid;
     'xui-grid-column': XuiGridColumn;
     'xui-input': XuiInput;
+    'xui-label': XuiLabel;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;
     'xui-over-element': XuiOverElement;
