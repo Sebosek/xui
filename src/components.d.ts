@@ -100,6 +100,9 @@ export namespace Components {
     'type': string;
     'value': string | number;
   }
+  interface XuiLoading {
+    'size': 12 | 24 | 32;
+  }
   interface XuiMenu {}
   interface XuiMenuItem {
     'defaultCursor': boolean;
@@ -208,6 +211,12 @@ declare global {
     new (): HTMLXuiInputElement;
   };
 
+  interface HTMLXuiLoadingElement extends Components.XuiLoading, HTMLStencilElement {}
+  var HTMLXuiLoadingElement: {
+    prototype: HTMLXuiLoadingElement;
+    new (): HTMLXuiLoadingElement;
+  };
+
   interface HTMLXuiMenuElement extends Components.XuiMenu, HTMLStencilElement {}
   var HTMLXuiMenuElement: {
     prototype: HTMLXuiMenuElement;
@@ -284,6 +293,7 @@ declare global {
     'xui-grid': HTMLXuiGridElement;
     'xui-grid-column': HTMLXuiGridColumnElement;
     'xui-input': HTMLXuiInputElement;
+    'xui-loading': HTMLXuiLoadingElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
     'xui-over-element': HTMLXuiOverElementElement;
@@ -373,6 +383,9 @@ declare namespace LocalJSX {
     'type'?: string;
     'value'?: string | number;
   }
+  interface XuiLoading extends JSXBase.HTMLAttributes<HTMLXuiLoadingElement> {
+    'size'?: 12 | 24 | 32;
+  }
   interface XuiMenu extends JSXBase.HTMLAttributes<HTMLXuiMenuElement> {}
   interface XuiMenuItem extends JSXBase.HTMLAttributes<HTMLXuiMenuItemElement> {
     'defaultCursor'?: boolean;
@@ -430,6 +443,7 @@ declare namespace LocalJSX {
     'xui-grid': XuiGrid;
     'xui-grid-column': XuiGridColumn;
     'xui-input': XuiInput;
+    'xui-loading': XuiLoading;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;
     'xui-over-element': XuiOverElement;
