@@ -79,17 +79,14 @@ export namespace Components {
   interface XuiGridColumn {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols': cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull': cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push': cols | undefined;
   }
@@ -138,6 +135,7 @@ export namespace Components {
   interface XuiTabs {
     'activeTab': string;
   }
+  interface XuiText {}
   interface XuiToggle {
     'disabled': boolean;
     'switched': boolean;
@@ -258,6 +256,12 @@ declare global {
     new (): HTMLXuiTabsElement;
   };
 
+  interface HTMLXuiTextElement extends Components.XuiText, HTMLStencilElement {}
+  var HTMLXuiTextElement: {
+    prototype: HTMLXuiTextElement;
+    new (): HTMLXuiTextElement;
+  };
+
   interface HTMLXuiToggleElement extends Components.XuiToggle, HTMLStencilElement {}
   var HTMLXuiToggleElement: {
     prototype: HTMLXuiToggleElement;
@@ -288,6 +292,7 @@ declare global {
     'xui-radio': HTMLXuiRadioElement;
     'xui-tab-item': HTMLXuiTabItemElement;
     'xui-tabs': HTMLXuiTabsElement;
+    'xui-text': HTMLXuiTextElement;
     'xui-toggle': HTMLXuiToggleElement;
     'xui-tooltip': HTMLXuiTooltipElement;
   }
@@ -347,17 +352,14 @@ declare namespace LocalJSX {
   interface XuiGridColumn extends JSXBase.HTMLAttributes<HTMLXuiGridColumnElement> {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols'?: cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull'?: cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push'?: cols | undefined;
   }
@@ -407,6 +409,7 @@ declare namespace LocalJSX {
   interface XuiTabs extends JSXBase.HTMLAttributes<HTMLXuiTabsElement> {
     'activeTab'?: string;
   }
+  interface XuiText extends JSXBase.HTMLAttributes<HTMLXuiTextElement> {}
   interface XuiToggle extends JSXBase.HTMLAttributes<HTMLXuiToggleElement> {
     'disabled'?: boolean;
     'onChanged'?: (event: CustomEvent<boolean>) => void;
@@ -435,6 +438,7 @@ declare namespace LocalJSX {
     'xui-radio': XuiRadio;
     'xui-tab-item': XuiTabItem;
     'xui-tabs': XuiTabs;
+    'xui-text': XuiText;
     'xui-toggle': XuiToggle;
     'xui-tooltip': XuiTooltip;
   }
