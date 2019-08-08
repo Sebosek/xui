@@ -84,17 +84,14 @@ export namespace Components {
   interface XuiGridColumn {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols': cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull': cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push': cols | undefined;
   }
@@ -109,6 +106,9 @@ export namespace Components {
     'value': string | number;
   }
   interface XuiLabel {}
+  interface XuiLoading {
+    'size': 12 | 24 | 32;
+  }
   interface XuiMenu {}
   interface XuiMenuItem {
     'defaultCursor': boolean;
@@ -144,6 +144,7 @@ export namespace Components {
   interface XuiTabs {
     'activeTab': string;
   }
+  interface XuiText {}
   interface XuiToggle {
     'disabled': boolean;
     'switched': boolean;
@@ -238,6 +239,10 @@ declare global {
   var HTMLXuiLabelElement: {
     prototype: HTMLXuiLabelElement;
     new (): HTMLXuiLabelElement;
+  interface HTMLXuiLoadingElement extends Components.XuiLoading, HTMLStencilElement {}
+  var HTMLXuiLoadingElement: {
+    prototype: HTMLXuiLoadingElement;
+    new (): HTMLXuiLoadingElement;
   };
 
   interface HTMLXuiMenuElement extends Components.XuiMenu, HTMLStencilElement {}
@@ -288,6 +293,12 @@ declare global {
     new (): HTMLXuiTabsElement;
   };
 
+  interface HTMLXuiTextElement extends Components.XuiText, HTMLStencilElement {}
+  var HTMLXuiTextElement: {
+    prototype: HTMLXuiTextElement;
+    new (): HTMLXuiTextElement;
+  };
+
   interface HTMLXuiToggleElement extends Components.XuiToggle, HTMLStencilElement {}
   var HTMLXuiToggleElement: {
     prototype: HTMLXuiToggleElement;
@@ -314,6 +325,7 @@ declare global {
     'xui-grid-column': HTMLXuiGridColumnElement;
     'xui-input': HTMLXuiInputElement;
     'xui-label': HTMLXuiLabelElement;
+    'xui-loading': HTMLXuiLoadingElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
     'xui-over-element': HTMLXuiOverElementElement;
@@ -322,6 +334,7 @@ declare global {
     'xui-radio': HTMLXuiRadioElement;
     'xui-tab-item': HTMLXuiTabItemElement;
     'xui-tabs': HTMLXuiTabsElement;
+    'xui-text': HTMLXuiTextElement;
     'xui-toggle': HTMLXuiToggleElement;
     'xui-tooltip': HTMLXuiTooltipElement;
   }
@@ -386,17 +399,14 @@ declare namespace LocalJSX {
   interface XuiGridColumn extends JSXBase.HTMLAttributes<HTMLXuiGridColumnElement> {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols'?: cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull'?: cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push'?: cols | undefined;
   }
@@ -411,6 +421,9 @@ declare namespace LocalJSX {
     'value'?: string | number;
   }
   interface XuiLabel extends JSXBase.HTMLAttributes<HTMLXuiLabelElement> {}
+  interface XuiLoading extends JSXBase.HTMLAttributes<HTMLXuiLoadingElement> {
+    'size'?: 12 | 24 | 32;
+  }
   interface XuiMenu extends JSXBase.HTMLAttributes<HTMLXuiMenuElement> {}
   interface XuiMenuItem extends JSXBase.HTMLAttributes<HTMLXuiMenuItemElement> {
     'defaultCursor'?: boolean;
@@ -447,6 +460,7 @@ declare namespace LocalJSX {
   interface XuiTabs extends JSXBase.HTMLAttributes<HTMLXuiTabsElement> {
     'activeTab'?: string;
   }
+  interface XuiText extends JSXBase.HTMLAttributes<HTMLXuiTextElement> {}
   interface XuiToggle extends JSXBase.HTMLAttributes<HTMLXuiToggleElement> {
     'disabled'?: boolean;
     'onChanged'?: (event: CustomEvent<boolean>) => void;
@@ -471,6 +485,7 @@ declare namespace LocalJSX {
     'xui-grid-column': XuiGridColumn;
     'xui-input': XuiInput;
     'xui-label': XuiLabel;
+    'xui-loading': XuiLoading;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;
     'xui-over-element': XuiOverElement;
@@ -479,6 +494,7 @@ declare namespace LocalJSX {
     'xui-radio': XuiRadio;
     'xui-tab-item': XuiTabItem;
     'xui-tabs': XuiTabs;
+    'xui-text': XuiText;
     'xui-toggle': XuiToggle;
     'xui-tooltip': XuiTooltip;
   }
