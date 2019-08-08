@@ -84,17 +84,14 @@ export namespace Components {
   interface XuiGridColumn {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols': cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull': cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push': cols | undefined;
   }
@@ -109,6 +106,10 @@ export namespace Components {
     'value': string | number;
   }
   interface XuiLabel {}
+  interface XuiLink {
+    'href': string;
+    'target': string;
+  }
   interface XuiLoading {
     'size': 12 | 24 | 32;
   }
@@ -244,6 +245,12 @@ declare global {
     new (): HTMLXuiLabelElement;
   };
 
+  interface HTMLXuiLinkElement extends Components.XuiLink, HTMLStencilElement {}
+  var HTMLXuiLinkElement: {
+    prototype: HTMLXuiLinkElement;
+    new (): HTMLXuiLinkElement;
+  };
+
   interface HTMLXuiLoadingElement extends Components.XuiLoading, HTMLStencilElement {}
   var HTMLXuiLoadingElement: {
     prototype: HTMLXuiLoadingElement;
@@ -330,6 +337,7 @@ declare global {
     'xui-grid-column': HTMLXuiGridColumnElement;
     'xui-input': HTMLXuiInputElement;
     'xui-label': HTMLXuiLabelElement;
+    'xui-link': HTMLXuiLinkElement;
     'xui-loading': HTMLXuiLoadingElement;
     'xui-menu': HTMLXuiMenuElement;
     'xui-menu-item': HTMLXuiMenuItemElement;
@@ -404,17 +412,14 @@ declare namespace LocalJSX {
   interface XuiGridColumn extends JSXBase.HTMLAttributes<HTMLXuiGridColumnElement> {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols'?: cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull'?: cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push'?: cols | undefined;
   }
@@ -429,6 +434,10 @@ declare namespace LocalJSX {
     'value'?: string | number;
   }
   interface XuiLabel extends JSXBase.HTMLAttributes<HTMLXuiLabelElement> {}
+  interface XuiLink extends JSXBase.HTMLAttributes<HTMLXuiLinkElement> {
+    'href'?: string;
+    'target'?: string;
+  }
   interface XuiLoading extends JSXBase.HTMLAttributes<HTMLXuiLoadingElement> {
     'size'?: 12 | 24 | 32;
   }
@@ -493,6 +502,7 @@ declare namespace LocalJSX {
     'xui-grid-column': XuiGridColumn;
     'xui-input': XuiInput;
     'xui-label': XuiLabel;
+    'xui-link': XuiLink;
     'xui-loading': XuiLoading;
     'xui-menu': XuiMenu;
     'xui-menu-item': XuiMenuItem;
