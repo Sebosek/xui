@@ -15,11 +15,11 @@ label {
     margin-bottom: 12px;
 
     &:empty {
-      margin-bottom: 28px;
-    }
-
-    & > * {
-      margin-bottom: 4px;
+      margin-bottom: 32px;
     }
   }
+}
+
+:host ::slotted([slot="message"]) {
+  margin-bottom: 4px;
 }
