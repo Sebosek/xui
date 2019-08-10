@@ -1,4 +1,4 @@
-import { Component, h, Prop, Watch } from '@stencil/core';
+import { Component, h, Prop, Watch, State } from '@stencil/core';
 import { size } from './avatar.size';
 
 @Component({
@@ -7,12 +7,25 @@ import { size } from './avatar.size';
   shadow: true,
 })
 export class Avatar {
-  @Prop({ reflectToAttr: true, mutable: true }) size : size = 'm'
-  @Prop({ reflectToAttr: true, mutable: true }) initials : string
-  @Prop({ reflectToAttr: true, mutable: true }) src : string
+  @Prop({ reflect: true }) size : size = 'm'
+  @Prop({ reflect: true }) initials : string
+  @Prop({ reflect: true }) src : string
+
+  @State() path : string
 
   @Watch('initials') watchInitials(newValue : string) {
-    this.initials = newValue.trim().substr(0, 2)
+    this.initials = newValue.trim().substr(0, 3)
+  }
+
+  @Watch('src') async watchSrc(newValue : string) {
+    const response = await fetch(newValue)
+    if (!response.ok) {
+      console.warn(`[Avatar] Unable to load data from ${newValue}`)
+      return
+    }
+
+    const data = response.blob()
+    this.path = URL.createObjectURL(data)
   }
 
   render() {
@@ -21,7 +34,7 @@ export class Avatar {
         data-initials={!!this.initials && this.initials}
         class={{ [this.size]: true }}
       >
-        {this.src && <img src={this.src} />}
+        {this.path && <img src={this.path} />}
       </figure>
     )
   }

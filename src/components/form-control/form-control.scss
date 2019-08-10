@@ -1,3 +1,5 @@
+@import "../shared/variables";
+
 :host {
   display: flex;
   flex-direction: row;
@@ -6,7 +8,15 @@
 }
 
 .control {
-  // align-items: center;
-  // display: inline-flex;
+  align-items: center;
+  display: inline-flex;
   margin-right: 12px;
+}
+
+.description {
+  font-size: $font-size-base;
+  font-family: $font-family;
+  font-weight: normal;
+  line-height: 1.5;
+  display: block;
 }
