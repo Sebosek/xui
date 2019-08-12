@@ -31,7 +31,10 @@ export class Avatar {
   }
 
   @Watch('src') async watchSrc(newValue : string) {
-    if (!newValue) return;
+    if (!newValue) {
+      this.path = null;
+      return;
+    }
 
     try {
       const response = await fetch(newValue)
