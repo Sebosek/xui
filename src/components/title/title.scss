@@ -1,0 +1,69 @@
+@import '../shared/variables';
+
+$_vertical-rhythm: 24px;
+$_font-scale-ratio: map-val($typography, '--q-font-scale');
+$_font-size: map-val($typography, '--q-font-size');
+
+$_title-1: (
+  'size': calc(#{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-size}),
+  'weight': 600,
+  'line-height': normal,
+  'margin': (2 * $_vertical-rhythm) 0 0 0,
+);
+
+$_title-2: (
+  'size': calc(#{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-size}),
+  'weight': 500,
+  'line-height': normal,
+  'margin': (1.5 * $_vertical-rhythm) 0 0 0
+);
+
+$_title-3: (
+  'size': calc(#{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-size}),
+  'weight': 500,
+  'line-height': normal,
+  'margin': $_vertical-rhythm 0 0 0
+);
+
+$_title-4: (
+  'size': calc(#{$_font-scale-ratio} * #{$_font-scale-ratio} * #{$_font-size}),
+  'weight': 500,
+  'line-height': normal,
+  'margin': $_vertical-rhythm 0 0 0
+);
+
+@mixin font($def) {
+  line-height: map-get($def, 'line-height');
+  font-size: map-get($def, 'size');
+  font-weight: map-get($def, 'weight');
+  margin: map-get($def, 'margin');
+}
+
+%header {
+  color: map-val($colors, '--q-color-backish--normal');
+  font-family: map-val($typography, '--q-font-family');
+}
+
+h1 {
+  @extend %header;
+  @include font($_title-1);
+}
+
+h2 {
+  @extend %header;
+  @include font($_title-2);
+}
+
+h3 {
+  @extend %header;
+  @include font($_title-3);
+}
+
+h4 {
+  @extend %header;
+  @include font($_title-4);
+}
+
+.spaceless {
+  margin: 0;
+}
