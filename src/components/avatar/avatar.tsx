@@ -7,14 +7,27 @@ import { size } from './avatar.size';
   scoped: true,
 })
 export class Avatar {
+  /**
+   * Sets an avatar size.
+   */
   @Prop({ reflect: true }) size : size = 'm'
+
+  /**
+   * Sets avatar initials.
+   * The value is trimmed to two characters in total.
+   */
   @Prop({ reflect: true }) initials : string
+
+  /**
+   * Sets the source for async image loading.
+   * With every change, the image is asynchronously loaded.
+   */
   @Prop({ reflect: true }) src : string
 
   @State() path : string
 
   @Watch('initials') watchInitials(newValue : string) {
-    this.initials = newValue.trim().substr(0, 3)
+    this.initials = newValue.trim().substr(0, 2)
   }
 
   @Watch('src') async watchSrc(newValue : string) {
@@ -40,6 +53,9 @@ export class Avatar {
     }
   }
 
+  /**
+   * An event is emitted if async loading fails.
+   */
   @Event({
     eventName: 'loading-error'
   }) error: EventEmitter

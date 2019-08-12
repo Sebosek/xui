@@ -42,8 +42,17 @@ export namespace Components {
     'middle': string;
   }
   interface XuiAvatar {
+    /**
+    * Sets avatar initials. The value is trimmed to two characters in total.
+    */
     'initials': string;
+    /**
+    * Sets an avatar size.
+    */
     'size': size;
+    /**
+    * Sets the source for async image loading. With every change, the image is asynchronously loaded.
+    */
     'src': string;
   }
   interface XuiButton {
@@ -373,8 +382,21 @@ declare namespace LocalJSX {
     'middle'?: string;
   }
   interface XuiAvatar extends JSXBase.HTMLAttributes<HTMLXuiAvatarElement> {
+    /**
+    * Sets avatar initials. The value is trimmed to two characters in total.
+    */
     'initials'?: string;
+    /**
+    * An event is emitted if async loading fails.
+    */
+    'onLoading-error'?: (event: CustomEvent<any>) => void;
+    /**
+    * Sets an avatar size.
+    */
     'size'?: size;
+    /**
+    * Sets the source for async image loading. With every change, the image is asynchronously loaded.
+    */
     'src'?: string;
   }
   interface XuiButton extends JSXBase.HTMLAttributes<HTMLXuiButtonElement> {
