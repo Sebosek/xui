@@ -4,7 +4,7 @@ import { size } from './avatar.size';
 @Component({
   tag: 'xui-avatar',
   styleUrl: 'avatar.scss',
-  shadow: true,
+  scoped: true,
 })
 export class Avatar {
   @Prop({ reflect: true }) size : size = 'm'
@@ -18,21 +18,35 @@ export class Avatar {
   }
 
   @Watch('src') async watchSrc(newValue : string) {
-    const response = await fetch(newValue)
-    if (!response.ok) {
-      console.warn(`[Avatar] Unable to load data from ${newValue}`)
-      return
-    }
+    if (!newValue) return;
 
-    const data = response.blob()
-    this.path = URL.createObjectURL(data)
+    try {
+      const response = await fetch(newValue)
+      if (!response.ok) {
+        console.warn(`[Avatar] Unable to load data from ${newValue}`, response)
+        return
+      }
+
+      const data = await response.blob()
+      this.path = URL.createObjectURL(data)
+    } catch (e) {
+      console.error(`[Avatar] Unable to retrieve data from ${newValue}`, e)
+    }
+  }
+
+  async componentDidLoad() {
+    await this.watchSrc(this.src)
   }
 
   render() {
     return (
       <figure
         data-initials={!!this.initials && this.initials}
-        class={{ [this.size]: true }}
+        class={{
+          [this.size]: true,
+          'loaded': !!this.path,
+          'loading': this.src && !this.path
+        }}
       >
         {this.path && <img src={this.path} />}
       </figure>

@@ -1,23 +1,29 @@
 @import "../shared/variables";
 
-figure {
+:host {
   $base-size: 40px;
+
+  display: inline-block;
+}
+
+figure {
+  --xui-avatar-size: 40px;
 
   align-items: center;
   background: $color-primary-400;
   border-radius: 50%;
   box-sizing: border-box;
   display: inline-flex;
-  font-family: #{map-val($typography, '--xui-font-family')};
+  font-family: $font-family;
   font-size: .85rem;
-  height: $base-size;
+  height: var(--xui-avatar-size);
   justify-content: center;
   line-height: 1;
   margin: 0;
   position: relative;
   overflow: hidden;
   vertical-align: middle;
-  width: $base-size;
+  width: var(--xui-avatar-size);
 
   img {
     border-radius: 50%;
@@ -29,38 +35,67 @@ figure {
     &:before {
       content: attr(data-initials);
       color: $color-base;
+      position: absolute;
+    }
+  }
+
+  &.loaded {
+    img {
+      animation: 200ms linear 1 forwards xui-avatar-loaded;
     }
   }
 
   &.xl {
-    $base-size: 64px;
+    --xui-avatar-size: 64px;
 
     font-size: 1.8rem;
-    height: $base-size;
-    width: $base-size;
   }
 
   &.l {
-    $base-size: 48px;
+    --xui-avatar-size: 48px;
 
     font-size: 1.4em;
-    height: $base-size;
-    width: $base-size;
   }
 
   &.s {
-    $base-size: 32px;
+    --xui-avatar-size: 32px;
 
     font-size: .8em;
-    height: $base-size;
-    width: $base-size;
   }
 
   &.xs {
-    $base-size: 24px;
+    --xui-avatar-size: 24px;
 
     font-size: .6em;
-    height: $base-size;
-    width: $base-size;
+  }
+
+  &.loading {
+    animation: 3000ms linear infinite alternate xui-avatar-loading;
+  }
+}
+
+
+@keyframes xui-avatar-loading {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 2px $color-primary-300;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes xui-avatar-loaded {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    width: var(--xui-avatar-size);
+    height: var(--xui-avatar-size);
+    opacity: 1;
   }
 }
