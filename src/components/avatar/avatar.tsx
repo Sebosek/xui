@@ -1,4 +1,4 @@
-import { Component, h, Prop, Watch, State } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop, Watch, State } from '@stencil/core';
 import { size } from './avatar.size';
 
 @Component({
@@ -23,16 +23,26 @@ export class Avatar {
     try {
       const response = await fetch(newValue)
       if (!response.ok) {
-        console.warn(`[Avatar] Unable to load data from ${newValue}`, response)
+        const message = `Unable to load data from '${newValue}'`
+
+        console.warn(`[Avatar] ${message}`, response)
+        this.error.emit()
         return
       }
 
       const data = await response.blob()
       this.path = URL.createObjectURL(data)
     } catch (e) {
-      console.error(`[Avatar] Unable to retrieve data from ${newValue}`, e)
+      const message = `Unable to retrieve data from '${newValue}'`
+
+      console.error(`[Avatar] ${message}`, e)
+      this.error.emit()
     }
   }
+
+  @Event({
+    eventName: 'loading-error'
+  }) error: EventEmitter
 
   async componentDidLoad() {
     await this.watchSrc(this.src)
