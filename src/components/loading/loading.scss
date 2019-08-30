@@ -7,12 +7,12 @@
 
   &:after {
     animation: loading 0.5s infinite linear;
-    border: 2px solid var(--xui-color-primary400, #42bff0);
+    border: 2px solid $color-primary-400;
     border-radius: 50%;
     border-right-color: transparent;
     border-top-color: transparent;
     box-sizing: border-box;
-    content: "";
+    content: '';
     display: inline-block;
     height: $size;
     width: $size;

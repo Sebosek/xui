@@ -11,11 +11,11 @@ export class Radio {
   private __definedIndex = 0
   private __radioEl: HTMLInputElement
 
-  @Prop({ reflectToAttr: true }) name: string
-  @Prop({ reflectToAttr: true, mutable: true }) checked: boolean = false
-  @Prop({ reflectToAttr: true, mutable: true }) value: string | number | null
-  @Prop({ reflectToAttr: true, mutable: true }) disabled: boolean = false
-  @Prop({ reflect: true, mutable: true }) tabindex: number = 0
+  @Prop({ reflect: true }) name: string
+  @Prop({ reflect: true, mutable: true }) checked: boolean = false
+  @Prop({ reflect: true, mutable: true }) value: string | number
+  @Prop({ reflect: true }) disabled: boolean = false
+  @Prop({ reflect: true }) tabindex: number = 0
   @Prop({ reflect: true, mutable: true }) state: state = 'normal'
 
   @Watch('disabled') watchDisabled(newValue: boolean) {

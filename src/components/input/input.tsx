@@ -7,14 +7,14 @@ import { state } from '../shared/state';
   scoped: true,
 })
 export class Input {
-  @Prop({ reflectToAttr: true, mutable: true }) placeholder: string
-  @Prop({ reflectToAttr: true, mutable: true }) type: string
-  @Prop({ reflectToAttr: true, mutable: true }) value: string | number
-  @Prop({ reflectToAttr: true, mutable: true }) name: string
-  @Prop({ reflectToAttr: true, mutable: true }) disabled: boolean
+  @Prop({ reflect: true }) placeholder: string
+  @Prop({ reflect: true }) type: string
+  @Prop({ reflect: true }) name: string
+  @Prop({ reflect: true }) disabled: boolean
   @Prop() prefixes: Array<(input: HTMLXuiInputElement) => HTMLElement> = []
   @Prop() suffixes: Array<(input: HTMLXuiInputElement) => HTMLElement> = []
   @Prop({ reflect: true, mutable: true }) state: state = 'normal'
+  @Prop({ reflect: true, mutable: true }) value: string | number
 
   @Element() el: HTMLXuiInputElement
 

@@ -25,6 +25,11 @@ export class Avatar {
   @Prop({ reflect: true }) src : string
 
   @State() path : string
+  @State() err : boolean = false
+
+  protected get loading() {
+    return !this.err && this.src && !this.path
+  }
 
   @Watch('initials') watchInitials(newValue : string) {
     this.initials = newValue.trim().substr(0, 2)
@@ -36,6 +41,7 @@ export class Avatar {
       return;
     }
 
+    this.err = false;
     try {
       const response = await fetch(newValue)
       if (!response.ok) {
@@ -53,6 +59,7 @@ export class Avatar {
 
       console.error(`[Avatar] ${message}`, e)
       this.error.emit()
+      this.err = true;
     }
   }
 
@@ -74,9 +81,9 @@ export class Avatar {
         class={{
           [this.size]: true,
           'loaded': !!this.path,
-          'loading': this.src && !this.path
         }}
       >
+        {this.loading && <div class="loading"></div>}
         {this.path && <img src={this.path} />}
       </figure>
     )

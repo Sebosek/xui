@@ -11,10 +11,10 @@ export class Checkbox {
   private __definedIndex = 0
 
   @Prop({ reflect: true }) name: string
+  @Prop({ reflect: true }) value: string | number
+  @Prop({ reflect: true }) disabled: boolean = false
   @Prop({ reflect: true, mutable: true }) checked: boolean = false
   @Prop({ reflect: true, mutable: true }) intermediate: boolean = false
-  @Prop({ reflect: true, mutable: true }) value: string | number
-  @Prop({ reflect: true, mutable: true }) disabled: boolean = false
   @Prop({ reflect: true, mutable: true }) tabindex: number = 0
   @Prop({ reflect: true, mutable: true }) state: state = 'normal'
 

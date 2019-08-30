@@ -24,6 +24,9 @@ import {
 import {
   cols,
 } from './components/grid/grid.column.cols';
+import {
+  level,
+} from './components/title/title.level';
 
 export namespace Components {
   interface BugComponent {}
@@ -151,7 +154,7 @@ export namespace Components {
     'name': string;
     'state': state;
     'tabindex': number;
-    'value': string | number | null;
+    'value': string | number;
   }
   interface XuiTabItem {
     'key': string;
@@ -161,6 +164,14 @@ export namespace Components {
     'activeTab': string;
   }
   interface XuiText {}
+  interface XuiTitle {
+    /**
+    * Defines general column size
+    * @type {cols}
+    */
+    'level': level;
+    'spaceless': boolean;
+  }
   interface XuiToggle {
     'disabled': boolean;
     'switched': boolean;
@@ -323,6 +334,12 @@ declare global {
     new (): HTMLXuiTextElement;
   };
 
+  interface HTMLXuiTitleElement extends Components.XuiTitle, HTMLStencilElement {}
+  var HTMLXuiTitleElement: {
+    prototype: HTMLXuiTitleElement;
+    new (): HTMLXuiTitleElement;
+  };
+
   interface HTMLXuiToggleElement extends Components.XuiToggle, HTMLStencilElement {}
   var HTMLXuiToggleElement: {
     prototype: HTMLXuiToggleElement;
@@ -360,6 +377,7 @@ declare global {
     'xui-tab-item': HTMLXuiTabItemElement;
     'xui-tabs': HTMLXuiTabsElement;
     'xui-text': HTMLXuiTextElement;
+    'xui-title': HTMLXuiTitleElement;
     'xui-toggle': HTMLXuiToggleElement;
     'xui-tooltip': HTMLXuiTooltipElement;
   }
@@ -496,7 +514,7 @@ declare namespace LocalJSX {
     'onSelected'?: (event: CustomEvent<void | string | number>) => void;
     'state'?: state;
     'tabindex'?: number;
-    'value'?: string | number | null;
+    'value'?: string | number;
   }
   interface XuiTabItem extends JSXBase.HTMLAttributes<HTMLXuiTabItemElement> {
     'key'?: string;
@@ -506,6 +524,14 @@ declare namespace LocalJSX {
     'activeTab'?: string;
   }
   interface XuiText extends JSXBase.HTMLAttributes<HTMLXuiTextElement> {}
+  interface XuiTitle extends JSXBase.HTMLAttributes<HTMLXuiTitleElement> {
+    /**
+    * Defines general column size
+    * @type {cols}
+    */
+    'level'?: level;
+    'spaceless'?: boolean;
+  }
   interface XuiToggle extends JSXBase.HTMLAttributes<HTMLXuiToggleElement> {
     'disabled'?: boolean;
     'onChanged'?: (event: CustomEvent<boolean>) => void;
@@ -541,6 +567,7 @@ declare namespace LocalJSX {
     'xui-tab-item': XuiTabItem;
     'xui-tabs': XuiTabs;
     'xui-text': XuiText;
+    'xui-title': XuiTitle;
     'xui-toggle': XuiToggle;
     'xui-tooltip': XuiTooltip;
   }
