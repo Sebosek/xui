@@ -1,0 +1,16 @@
+@import '../shared/variables';
+
+.controller {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 340px;
+
+  > * {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

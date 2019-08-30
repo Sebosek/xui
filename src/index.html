@@ -470,7 +470,11 @@
     show.addEventListener('click', () => {
       const controller = document.getElementById('controller');
       if (controller) {
-        controller.message({ text: `Hello ${++inc}`, timeout: 6000 });
+        controller.message({ 
+          text: `Hello ${++inc}`, 
+          timeout: 6000,
+          type: 'danger'
+        });
       }
     });
 

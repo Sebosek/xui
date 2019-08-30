@@ -16,9 +16,6 @@ import {
   type,
 } from './components/callout/callout.type';
 import {
-  state as state1,
-} from './components/callout/callout.state';
-import {
   gutter,
 } from './components/grid/grid.gutter';
 import {
@@ -71,9 +68,7 @@ export namespace Components {
   }
   interface XuiCallout {
     'closeable': boolean;
-    'destroy': () => Promise<void>;
-    'state': state;
-    'timeout': number;
+    'destroy': (callback?: () => void) => Promise<void>;
     'type': type | null;
   }
   interface XuiCaption {
@@ -100,17 +95,14 @@ export namespace Components {
   interface XuiGridColumn {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols': cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull': cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push': cols | undefined;
   }
@@ -171,13 +163,12 @@ export namespace Components {
   interface XuiTitle {
     /**
     * Defines general column size
-    * @type {cols}
     */
     'level': level;
     'spaceless': boolean;
   }
   interface XuiToastController {
-    'message': ({ text, timeout }: ToastOpts) => Promise<Toast>;
+    'message': ({ text, timeout, type, }: ToastOpts) => Promise<Toast>;
   }
   interface XuiToggle {
     'disabled': boolean;
@@ -440,8 +431,6 @@ declare namespace LocalJSX {
   }
   interface XuiCallout extends JSXBase.HTMLAttributes<HTMLXuiCalloutElement> {
     'closeable'?: boolean;
-    'state'?: state;
-    'timeout'?: number;
     'type'?: type | null;
   }
   interface XuiCaption extends JSXBase.HTMLAttributes<HTMLXuiCaptionElement> {
@@ -469,17 +458,14 @@ declare namespace LocalJSX {
   interface XuiGridColumn extends JSXBase.HTMLAttributes<HTMLXuiGridColumnElement> {
     /**
     * Defines general column width
-    * @type {cols}
     */
     'cols'?: cols | undefined;
     /**
     * Defines column pulling
-    * @type {cols}
     */
     'pull'?: cols | undefined;
     /**
     * Defines column pushing
-    * @type {cols}
     */
     'push'?: cols | undefined;
   }
@@ -541,7 +527,6 @@ declare namespace LocalJSX {
   interface XuiTitle extends JSXBase.HTMLAttributes<HTMLXuiTitleElement> {
     /**
     * Defines general column size
-    * @type {cols}
     */
     'level'?: level;
     'spaceless'?: boolean;

@@ -1,6 +1,5 @@
-import { Component, h, Prop, Method, Element, Watch, Host } from '@stencil/core';
+import { Component, h, Prop, Method, Element, Host } from '@stencil/core';
 import { type } from './callout.type';
-import { state } from './callout.state';
 
 @Component({
   tag: 'xui-callout',
@@ -8,37 +7,23 @@ import { state } from './callout.state';
   shadow: true
 })
 export class Callout {
-  private _timer : number
-
   constructor() {
     this.destroy = this.destroy.bind(this)
   }
 
   @Prop({ reflect: true }) closeable : boolean = false
   @Prop({ reflect: true }) type : type | null
-  @Prop({ reflect: true }) timeout : number = 5000
-  @Prop({ reflect: true, mutable: true }) state : state = 'init'
-
-  @Watch('state') watchState(newValue: state) {
-    if (newValue === 'running') {
-      this._timer = setTimeout(this.destroy, this.timeout)
-    }
-
-    if (newValue === 'destroyed') {
-      this.destroy()
-    }
-  }
 
   @Element() el : HTMLElement
   message : HTMLElement
 
-  @Method() async destroy() {
+  @Method() async destroy(callback: () => void = () => {}) {
     this.message.classList.toggle('closing', true)
-    setTimeout(() => this.el.remove(), 200)
-  }
 
-  componentDidUnload() {
-    clearTimeout(this._timer)
+    setTimeout(() => {
+      this.el.remove()
+      callback()
+    }, 200)
   }
 
   render() {
@@ -65,7 +50,7 @@ export class Callout {
         class="icon close"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        onClick={this.destroy}
+        onClick={_ => this.destroy()}
       >
         <g>
           <path fill="none" d="M0 0h24v24H0z"/>
