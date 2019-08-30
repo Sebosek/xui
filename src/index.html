@@ -251,34 +251,6 @@
     </xui-tooltip>
   </div>
 
-  <div>
-    <xui-callout
-    >
-      Hello, I am a basic callout.
-    </xui-callout>
-
-    <xui-callout
-      closeable
-    >
-      Hello, I am a basic closeable callout.
-    </xui-callout>
-    <xui-callout
-      type="info"
-    >
-      Hello, I am a basic info callout.
-    </xui-callout>
-    <xui-callout
-      type="success"
-    >
-      Hello, I am a basic success callout.
-    </xui-callout>
-    <xui-callout
-      type="danger"
-    >
-      Hello, I am a basic danger callout.
-    </xui-callout>
-  </div>
-
   <xui-grid>
     <xui-grid-column
       cols="2"
@@ -313,7 +285,6 @@
       <span>The content of Tab two</span>
     </xui-tab-item>
   </xui-tabs>
-   -->
 
   <div>
     <xui-avatar
@@ -375,7 +346,7 @@
     ></xui-input>
   </div>
 
-  <!-- <div style="padding: 250px;">
+  <div style="padding: 250px;">
     <xui-popover
       shown
       title="Popover!"
@@ -388,7 +359,7 @@
         text="popover"
       ></xui-button>
     </xui-popover>
-  </div> -->
+  </div>
 
   <div style="margin-top: 24px;">
     <xui-label
@@ -483,9 +454,26 @@
   <xui-text>
     Hello this is a test of <xui-link>text</xui-link> with a link component inside.
   </xui-text>
+  -->
 
+  <div>
+    <xui-toast-controller
+      id="controller"
+    ></xui-toast-controller>
+
+    <button id="show">Show message</button>
+  </div>
 
   <script>
+    let inc = 0;
+    const show = document.getElementById('show');
+    show.addEventListener('click', () => {
+      const controller = document.getElementById('controller');
+      if (controller) {
+        controller.message({ text: `Hello ${++inc}`, timeout: 6000 });
+      }
+    });
+
     const select = document.getElementById('select');
     if (select) {
       select.addEventListener('click', () => {

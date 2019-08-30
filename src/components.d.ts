@@ -27,6 +27,10 @@ import {
 import {
   level,
 } from './components/title/title.level';
+import {
+  Toast,
+  ToastOpts,
+} from './components/toast/toast-controller';
 
 export namespace Components {
   interface BugComponent {}
@@ -171,6 +175,9 @@ export namespace Components {
     */
     'level': level;
     'spaceless': boolean;
+  }
+  interface XuiToastController {
+    'message': ({ text, timeout }: ToastOpts) => Promise<Toast>;
   }
   interface XuiToggle {
     'disabled': boolean;
@@ -340,6 +347,12 @@ declare global {
     new (): HTMLXuiTitleElement;
   };
 
+  interface HTMLXuiToastControllerElement extends Components.XuiToastController, HTMLStencilElement {}
+  var HTMLXuiToastControllerElement: {
+    prototype: HTMLXuiToastControllerElement;
+    new (): HTMLXuiToastControllerElement;
+  };
+
   interface HTMLXuiToggleElement extends Components.XuiToggle, HTMLStencilElement {}
   var HTMLXuiToggleElement: {
     prototype: HTMLXuiToggleElement;
@@ -378,6 +391,7 @@ declare global {
     'xui-tabs': HTMLXuiTabsElement;
     'xui-text': HTMLXuiTextElement;
     'xui-title': HTMLXuiTitleElement;
+    'xui-toast-controller': HTMLXuiToastControllerElement;
     'xui-toggle': HTMLXuiToggleElement;
     'xui-tooltip': HTMLXuiTooltipElement;
   }
@@ -532,6 +546,7 @@ declare namespace LocalJSX {
     'level'?: level;
     'spaceless'?: boolean;
   }
+  interface XuiToastController extends JSXBase.HTMLAttributes<HTMLXuiToastControllerElement> {}
   interface XuiToggle extends JSXBase.HTMLAttributes<HTMLXuiToggleElement> {
     'disabled'?: boolean;
     'onChanged'?: (event: CustomEvent<boolean>) => void;
@@ -568,6 +583,7 @@ declare namespace LocalJSX {
     'xui-tabs': XuiTabs;
     'xui-text': XuiText;
     'xui-title': XuiTitle;
+    'xui-toast-controller': XuiToastController;
     'xui-toggle': XuiToggle;
     'xui-tooltip': XuiTooltip;
   }
