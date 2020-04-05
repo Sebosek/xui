@@ -24,7 +24,7 @@
   "devDependencies": {
     "@stencil/core": "^1.2.2",
     "@stencil/sass": "^1.0.1",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.3"
   },
   "license": "Apache 2.0"
 }
